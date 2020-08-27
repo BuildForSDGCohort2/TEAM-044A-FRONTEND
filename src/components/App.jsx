@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import LandingPage from './components/Landing';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
-import Footer from './components/Footer';
+import Navbar from './Navbar/navbar';
+import LandingPage from './Landing/landing';
+import Login from './Login/login';
+import Signup from './Signup/signup';
+import Dashboard from './Dashboard/index';
+import Footer from './Footer/footer';
 
 function App() {
   return (

@@ -1,24 +1,31 @@
+
 .nav.side-nav li {
   margin: 1em 0;
 }
+
 .nav.side-nav li a {
   color: #fff;
   text-decoration: none;
 }
+
 .nav.side-nav li:hover {
   transform: scale(1.1);
   opacity: 0.7;
 }
+
 .active {
   background-color: rgba(0, 0, 0, 0.3);
   padding: 0.5em;
 }
 
 @media only screen and (max-width: 600px) {
+
   .nav.side-nav li {
     float: left;
   }
+
   .nav.side-nav li a {
     margin: 0 1em;
   }
+  
 }
