@@ -12,9 +12,9 @@ export default function MainDashboard() {
             </div>
             <div className="row mt-4">
                 <div className="col-md-6">
-                    <div className="card p-3 h-100 bg-info shadow text-white rounded d-flex">
-                        <h5>Hi Sadiq Sambo,</h5>
-                        <p className="mt-5">Welcome to your MoneyGuard Dashboard where you have an overview of your transactions and activities</p>
+                    <div className="card p-3 h-100 bg-info shadow text-white rounded text-center">
+                        <i className="fas fa-plus-circle fa-2x text-white mb-5"></i>
+                        <h5><a href="/dashboard/create-transactions" className="text-white">Create Transactions</a></h5>
                     </div>
                 </div>
                 <div className="col-md-6">

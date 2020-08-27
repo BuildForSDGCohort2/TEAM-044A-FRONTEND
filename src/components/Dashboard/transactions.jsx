@@ -4,9 +4,7 @@ export default function Transactions() {
     return (
         <section className="container">
             <section className="container d-flex justify-content-center mt-2 mb-5">
-                <button className="btn btn-outline-info mx-2">Buy</button>
-                <button className="btn btn-outline-info mx-2">Sell</button>
-                <button className="btn btn-outline-info mx-2">Broker</button>
+                <a href="/dashboard/create-transactions" className="btn btn-outline-info mx-2">Create Transaction</a>
             </section>
 
             <ul className="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">

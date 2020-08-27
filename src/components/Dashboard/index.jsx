@@ -5,6 +5,7 @@ import Sidenav from "../SideNav/sidenav";
 import Transactions from "./transactions";
 import Disputes from "./disputes";
 import Settings from "./settings";
+import CreateTransaction from "./create-tansaction";
 
 export default function Dashboard() {
     return (
@@ -17,6 +18,7 @@ export default function Dashboard() {
                     <Switch>
                         <Route exact path="/dashboard" component={MainDashboard} />
                         <Route path="/dashboard/transactions" component={Transactions} />
+                        <Route path="/dashboard/create-transactions" component={CreateTransaction} />
                         <Route path="/dashboard/disputes" component={Disputes} />
                         <Route path="/dashboard/settings" component={Settings} />
                     </Switch>
