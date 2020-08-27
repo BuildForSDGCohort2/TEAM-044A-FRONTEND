@@ -1,9 +1,10 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import "./sidenav.css";
 
 export default function Sidenav(props) {
     return (
-        <main className="container bg-info rounded" style={{"height":"80vh"}}>
+        <main className="container bg-info rounded side--nav">
             <h2 className="text-light">MG</h2>
             <nav className="nav side-nav">
                 <ul className="list-unstyled">

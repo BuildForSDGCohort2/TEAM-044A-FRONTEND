@@ -1,10 +1,10 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import MainDashboard from './dashboard';
-import Sidenav from '../SideNav/sidenav';
-import Transactions from './transactions';
-import Disputes from './disputes';
-import Settings from './settings';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import MainDashboard from "./dashboard";
+import Sidenav from "../SideNav/sidenav";
+import Transactions from "./transactions";
+import Disputes from "./disputes";
+import Settings from "./settings";
 
 export default function Dashboard() {
     return (
