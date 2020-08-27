@@ -14,7 +14,7 @@ export default function MainDashboard() {
                 <div className="col-md-6">
                     <div className="card p-3 h-100 bg-info shadow text-white rounded text-center">
                         <i className="fas fa-plus-circle fa-2x text-white mb-5"></i>
-                        <h5><a href="/dashboard/create-transactions" className="text-white">Create Transactions</a></h5>
+                        <h5><a href="/dashboard/create-transactions" className="text-white">Create Transaction</a></h5>
                     </div>
                 </div>
                 <div className="col-md-6">
