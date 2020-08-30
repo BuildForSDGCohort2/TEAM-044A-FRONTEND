@@ -3,6 +3,7 @@ import React from "react";
 export default function Transactions() {
     return (
         <section className="container">
+
             <section className="container d-flex justify-content-center mt-2 mb-5">
                 <a href="/dashboard/create-transactions" className="btn btn-outline-info mx-2">Create Transaction</a>
             </section>
@@ -17,68 +18,92 @@ export default function Transactions() {
             </ul>
             <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade bg-light p-3 show active" id="active" role="tabpanel" aria-labelledby="active-tab">
-                    <div className="table-responsive">
-                        <table className="table table-hover">
-                            <thead className="bg-info text-white">
-                                <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Role</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>01/02/03</td>
-                                    <td>N1000</td>
-                                    <td>Some stuff</td>
-                                    <td>Buyer</td>
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>01/02/03</td>
-                                    <td>N1000</td>
-                                    <td>Another stuff</td>
-                                    <td>Broker</td>
-                                    <td>Pending</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div>
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <div className="card" style={{ width: "18rem" }}>
+                                    <img className="card-img-top" src="..." alt="" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">Transaction title</h5>
+                                        <p className="card-text">Some brief description.</p>
+                                        <button className="btn btn-warning">Status</button>
+                                        <button className="ml-1 btn btn-dark">View details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="card" style={{ width: "18rem" }}>
+                                    <img className="card-img-top" src="..." alt="" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">Transaction title</h5>
+                                        <p className="card-text">Some brief description.</p>
+                                        <button className="btn btn-danger">Status</button>
+                                        <button className="ml-1 btn btn-dark">View details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="card" style={{ width: "18rem" }}>
+                                    <img className="card-img-top" src="..." alt="" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">Transaction title</h5>
+                                        <p className="card-text">Some brief description.</p>
+                                        <button className="btn btn-info">Status</button>
+                                        <button className="ml-1 btn btn-dark">View details</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="w-100 d-none d-md-block mt-2"></div>
+
+                            <div className="col-6 col-sm-4">
+                                <div className="card" style={{ width: "18rem" }}>
+                                    <img className="card-img-top" src="..." alt="" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">Transaction title</h5>
+                                        <p className="card-text">Some brief description.</p>
+                                        <button className="btn btn-info">Status</button>
+                                        <button className="ml-1 btn btn-dark">View details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="tab-pane fade p-3 bg-light" id="closed" role="tabpanel" aria-labelledby="closed-tab">
-                    <div className="table-responsive">
-                        <table className="table table-hover">
-                            <thead className="bg-dark text-white">
-                                <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>01/02/03</td>
-                                    <td>N1000</td>
-                                    <td>Some stuff</td>
-                                    <td>Buyer</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>01/02/03</td>
-                                    <td>N1000</td>
-                                    <td>Another stuff</td>
-                                    <td>Broker</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div className="row">
+                        <div className="col-6 col-sm-4">
+                            <div className="card" style={{ width: "18rem" }}>
+                                <img className="card-img-top" src="..." alt="" />
+                                <div className="card-body">
+                                    <h5 className="card-title">Transaction title</h5>
+                                    <p className="card-text">Some brief description.</p>
+                                    <button className="ml-1 btn btn-dark">View details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-6 col-sm-4">
+                            <div className="card" style={{ width: "18rem" }}>
+                                <img className="card-img-top" src="..." alt="" />
+                                <div className="card-body">
+                                    <h5 className="card-title">Transaction title</h5>
+                                    <p className="card-text">Some brief description.</p>
+                                    <button className="ml-1 btn btn-dark">View details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-6 col-sm-4">
+                            <div className="card" style={{ width: "18rem" }}>
+                                <img className="card-img-top" src="..." alt="" />
+                                <div className="card-body">
+                                    <h5 className="card-title">Transaction title</h5>
+                                    <p className="card-text">Some brief description.</p>
+                                    <button className="ml-1 btn btn-dark">View details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="w-100 d-none d-md-block mt-2"></div>
                     </div>
                 </div>
             </div>
