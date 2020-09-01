@@ -5,6 +5,7 @@ import Sidenav from '../SideNav/sidenav';
 import Transactions from './transactions';
 import Disputes from './disputes';
 import Settings from './settings';
+import ConfirmDelivery from './confirm-delivery';
 
 export default function Dashboard() {
     return (
@@ -19,6 +20,7 @@ export default function Dashboard() {
                         <Route path="/dashboard/transactions" component={Transactions} />
                         <Route path="/dashboard/disputes" component={Disputes} />
                         <Route path="/dashboard/settings" component={Settings} />
+                        <Route path="/dashboard/confirm-delivery" component={ConfirmDelivery} />
                     </Switch>
 
                 </div>
