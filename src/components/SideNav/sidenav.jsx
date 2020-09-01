@@ -10,6 +10,7 @@ export default function Sidenav(props) {
                 <ul className="list-unstyled">
                     <li><NavLink to="/dashboard" activeClassName="active" exact><i className="fas fa-tachometer-alt"></i> Dashboard</NavLink></li>
                     <li><NavLink to="/dashboard/transactions" activeClassName="active"><i className="fas fa-money-bill-wave"></i> Transactions</NavLink></li>
+                    <li><NavLink to="/dashboard/confirm-delivery" activeClassName="active"><i className="fas fa-truck"></i> Confirm Delivery</NavLink></li>
                     <li><NavLink to="/dashboard/disputes" activeClassName="active"><i className="fas fa-users"></i> Disputes</NavLink></li>
                     <li><NavLink to="/dashboard/settings" activeClassName="active"><i className="fas fa-cogs"></i> Settings</NavLink></li>
                 </ul>
