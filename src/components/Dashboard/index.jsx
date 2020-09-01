@@ -7,6 +7,7 @@ import Disputes from './disputes';
 import Settings from './settings';
 import ConfirmDelivery from './confirm-delivery';
 
+
 export default function Dashboard() {
     return (
         <section>
@@ -18,6 +19,7 @@ export default function Dashboard() {
                     <Switch>
                         <Route exact path="/dashboard" component={MainDashboard} />
                         <Route path="/dashboard/transactions" component={Transactions} />
+                        <Route path="/dashboard/create-transactions" component={CreateTransaction} />
                         <Route path="/dashboard/disputes" component={Disputes} />
                         <Route path="/dashboard/settings" component={Settings} />
                         <Route path="/dashboard/confirm-delivery" component={ConfirmDelivery} />
