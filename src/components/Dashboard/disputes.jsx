@@ -19,10 +19,10 @@ export default function Disputes() {
                 <table className="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">#ID</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Status</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Decision</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,37 +30,25 @@ export default function Disputes() {
                             <th scope="row">1</th>
                             <td className="text-warning">Pending</td>
                             <td>01/02/03</td>
-                            <td>
-                                <button className="btn btn-success btn-sm"><i className="fa fa-check"></i></button>
-                                <button className="btn btn-danger btn-sm"><i className="fa fa-times"></i></button>
-                            </td>
+                            <td>lorem ipsum</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td className="text-warning">Pending</td>
                             <td>01/02/03</td>
-                            <td>
-                                <button className="btn btn-success btn-sm"><i className="fa fa-check"></i></button>
-                                <button className="btn btn-danger btn-sm"><i className="fa fa-times"></i></button>
-                            </td>
+                            <td>lorem ipsum</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td className="text-success">Resolved</td>
                             <td>01/02/03</td>
-                            <td>
-                                <button className="btn btn-success btn-sm"><i className="fa fa-check"></i></button>
-                                <button className="btn btn-danger btn-sm"><i className="fa fa-times"></i></button>
-                            </td>
+                            <td>lorem ipsum</td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
                             <td className="text-success">Resolved</td>
                             <td>01/02/03</td>
-                            <td>
-                                <button className="btn btn-success btn-sm"><i className="fa fa-check"></i></button>
-                                <button className="btn btn-danger btn-sm"><i className="fa fa-times"></i></button>
-                            </td>
+                            <td>lorem ipsum</td>
                         </tr>
                     </tbody>
                 </table>
