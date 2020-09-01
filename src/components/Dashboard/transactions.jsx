@@ -26,8 +26,19 @@ export default function Transactions() {
                                     <div className="card-body">
                                         <h5 className="card-title">Transaction title</h5>
                                         <p className="card-text">Some brief description.</p>
-                                        <button className="btn btn-warning">Status</button>
-                                        <button className="ml-1 btn btn-dark">View details</button>
+                                        <p className="text-warning text-muted">Status - Awaiting Confirmation</p>
+                                        <div class="btn-group dropright">
+                                            <button className="ml-1 btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fa fa-eye"></i> View details</button>
+                                            <div class="dropdown-menu">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item"><strong>Amount: </strong> N1000</li>
+                                                    <li class="list-group-item"><strong>Ref number: </strong>012345</li>
+                                                    <li class="list-group-item"><strong>Email: </strong>johndoe@mail.com</li>
+                                                    <li class="list-group-item"><strong>ID: </strong>67890</li>
+                                                    <li class="list-group-item"><strong>Status: </strong>Awaiting Confirmation</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -37,8 +48,19 @@ export default function Transactions() {
                                     <div className="card-body">
                                         <h5 className="card-title">Transaction title</h5>
                                         <p className="card-text">Some brief description.</p>
-                                        <button className="btn btn-danger">Status</button>
-                                        <button className="ml-1 btn btn-dark">View details</button>
+                                        <p className="text-warning text-muted">Status - Awaiting Confirmation</p>
+                                        <div class="btn-group dropright">
+                                            <button className="ml-1 btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fa fa-eye"></i> View details</button>
+                                            <div class="dropdown-menu">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item"><strong>Amount: </strong> N1000</li>
+                                                    <li class="list-group-item"><strong>Ref number: </strong>012345</li>
+                                                    <li class="list-group-item"><strong>Email: </strong>johndoe@mail.com</li>
+                                                    <li class="list-group-item"><strong>ID: </strong>67890</li>
+                                                    <li class="list-group-item"><strong>Status: </strong>Awaiting Confirmation</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -48,8 +70,19 @@ export default function Transactions() {
                                     <div className="card-body">
                                         <h5 className="card-title">Transaction title</h5>
                                         <p className="card-text">Some brief description.</p>
-                                        <button className="btn btn-info">Status</button>
-                                        <button className="ml-1 btn btn-dark">View details</button>
+                                        <p className="text-warning text-muted">Status - Awaiting Confirmation</p>
+                                        <div class="btn-group dropright">
+                                            <button className="ml-1 btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fa fa-eye"></i> View details</button>
+                                            <div class="dropdown-menu">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item"><strong>Amount: </strong> N1000</li>
+                                                    <li class="list-group-item"><strong>Ref number: </strong>012345</li>
+                                                    <li class="list-group-item"><strong>Email: </strong>johndoe@mail.com</li>
+                                                    <li class="list-group-item"><strong>ID: </strong>67890</li>
+                                                    <li class="list-group-item"><strong>Status: </strong>Awaiting Confirmation</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -62,8 +95,19 @@ export default function Transactions() {
                                     <div className="card-body">
                                         <h5 className="card-title">Transaction title</h5>
                                         <p className="card-text">Some brief description.</p>
-                                        <button className="btn btn-info">Status</button>
-                                        <button className="ml-1 btn btn-dark">View details</button>
+                                        <p className="text-warning text-muted">Status - Awaiting Confirmation</p>
+                                        <div class="btn-group dropright">
+                                            <button className="ml-1 btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fa fa-eye"></i> View details</button>
+                                            <div class="dropdown-menu">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item"><strong>Amount: </strong> N1000</li>
+                                                    <li class="list-group-item"><strong>Ref number: </strong>012345</li>
+                                                    <li class="list-group-item"><strong>Email: </strong>johndoe@mail.com</li>
+                                                    <li class="list-group-item"><strong>ID: </strong>67890</li>
+                                                    <li class="list-group-item"><strong>Status: </strong>Awaiting Confirmation</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
