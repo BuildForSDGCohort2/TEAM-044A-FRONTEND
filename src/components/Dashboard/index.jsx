@@ -4,6 +4,7 @@ import MainDashboard from './dashboard';
 import Sidenav from '../SideNav/sidenav';
 import Transactions from './transactions';
 import Disputes from './disputes';
+import CreateTransaction from './create-tansaction';
 import Settings from './settings';
 import ConfirmDelivery from './confirm-delivery';
 
