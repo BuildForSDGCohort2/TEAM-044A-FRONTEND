@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+div#reg-form-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div#info-column{
+    background-color: #388087;
+    height: 78vh;
+    width: 23vw;
+    padding: 25px;
+    border-radius: 10px 0 0 10px;
+    color: #ffffff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
+}
+
+div#info-column button{
+    font-weight: 600;
+}
+
+div#reg-column{
+    background-color: #ffffff;
+    height: 78vh;
+    width: 28vw;
+    padding: 25px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
+}
+
+div#form-row1-label{
+    display: flex;
+    flex-direction: row;
+}
+
+div#form-row1-label *:last-child{
+    width: 12vw;
+}
+
+div#form-row1-input{
+    display: flex;
+    flex-direction: row;
+}
+
+div#form-row1-input *{
+    width: 11vw;
+}
+
+div#form-row1-input div#lastNameInput{
+    margin-left: 1vw;
+}
+
+div#form-row2-label{
+    margin-top: 10px;
+}
+
+div#form-row2-input > input{
+    width: 23vw;
+}
+
+div#form-row3-label{
+    margin-top: 10px;
+}
+
+div#form-row3-input > input{
+    width: 23vw;
+}
+ 
+div#form-row4-label{
+    margin-top: 10px;
+}
+
+div#form-row4-input > input{
+    width: 23vw;
+}
+ 
+div#form-row5-label{
+    margin-top: 10px;
+}
+
+div#form-row5-input > input{
+    width: 23vw;
+}
+
+button#btn-register{
+    background-color: #388087;
+    color: #ffffff;
+    border: none;
+    margin-top: 10px;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+input#termsAndConditions{
+    margin: 20px 0 5px;
+}
+
+@media only screen and (max-width: 930px) {
+    div#info-column{
+        font-size: 12px;
+        width: 28vw;
+        height: 66vh;
+    }
+    div#info-column h3{
+        font-size: 22px;
+    }
+    div#reg-column{
+        font-size: 13px;
+        width: 35vw;
+        height: 66vh;
+        padding: 20px;
+    }
+    div#reg-column h3{
+        font-size: 22px;
+    }
+}

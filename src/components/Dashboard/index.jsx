@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import MainDashboard from './dashboard';
 import Sidenav from '../SideNav/sidenav';
 import Transactions from './transactions';
+import CreateTransaction from './create-tansaction'
 import Disputes from './disputes';
 import Settings from './settings';
 import ConfirmDelivery from './confirm-delivery';
@@ -24,7 +25,6 @@ export default function Dashboard() {
                         <Route path="/dashboard/settings" component={Settings} />
                         <Route path="/dashboard/confirm-delivery" component={ConfirmDelivery} />
                     </Switch>
-
                 </div>
             </div>
         </section>
