@@ -1,4 +1,4 @@
-.not-default:hover {
+.not-default :hover {
   background-color: #029ab2;
   color: #fff;
 }

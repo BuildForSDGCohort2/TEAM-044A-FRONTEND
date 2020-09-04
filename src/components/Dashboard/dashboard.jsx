@@ -24,8 +24,8 @@ export default function MainDashboard() {
             </h5>
           </div>
         </div>
-        <div className="col-md-6">
-          <div className="card p-3 not-default pt-3 h-100 rounded">
+        <div className="col-md-6 not-default">
+          <div className="card p-3  pt-3 h-100 rounded">
             <div className="text-center">
               <i className="fas fa-chart-line fa-2x text-muted mb-5"></i>
               <h2 className="text-muted">0</h2>
@@ -35,8 +35,8 @@ export default function MainDashboard() {
         </div>
       </div>
       <div className="row mt-4">
-        <div className="col-md-6">
-          <div className="card p-3 not-default pt-3 h-100  rounded">
+        <div className="col-md-6 not-default">
+          <div className="card p-3  pt-3 h-100  rounded">
             <div className="text-center">
               <i className="fas fa-clipboard-check fa-2x text-muted mb-5"></i>
               <h2 className="text-muted">0</h2>
@@ -44,8 +44,8 @@ export default function MainDashboard() {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
-          <div className="card p-3 not-default h-100  rounded">
+        <div className="col-md-6 not-default">
+          <div className="card p-3  h-100  rounded">
             <div className="text-center">
               <i className="fas fa-chart-pie fa-2x text-muted mb-5"></i>
               <h2 className="text-muted">0</h2>
