@@ -1,32 +1,35 @@
-import React from 'react';
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
 
-import Navbar from './Navbar/navbar';
-import LandingPage from './Landing/landing';
-import Login from './Login/login';
-import Signup from './Signup/signup';
-import Dashboard from './Dashboard/index';
-import Footer from './Footer/footer';
+import Navbar from "./Navbar/navbar";
+import LandingPage from "./Landing/landing";
+import Login from "./Login/login";
+import Signup from "./Signup/signup";
+import Dashboard from "./Dashboard/index";
+import Footer from "./Footer/footer";
+import AuthState from "../context/auth/authState";
 
 function App() {
   return (
-    <main>
-      <header>
-        <Navbar />
-      </header>
+    <AuthState>
+      <main>
+        <header>
+          <Navbar />
+        </header>
 
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/dashboard" component={Dashboard} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Signup} />
+          <Route path="/dashboard" component={Dashboard} />
+        </Switch>
 
-      <div className="">
-        < Footer />
-      </div>
-    </main>
+        <div className="">
+          <Footer />
+        </div>
+      </main>
+    </AuthState>
   );
 }
 
