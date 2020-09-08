@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './signup.css';
 
-class Signup extends Component{
-    render(){
+export default function Signup (){
         const bodyStyle = document.querySelector("body").style;
         bodyStyle.backgroundImage = "linear-gradient(to bottom, #F6F6F2, #C2EDCE)";
         bodyStyle.backgroundRepeat = "no-repeat";
@@ -74,7 +73,4 @@ class Signup extends Component{
                 </div>
             </div>
         )
-    }
 }
-
-export default Signup;

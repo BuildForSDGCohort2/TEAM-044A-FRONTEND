@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css'
 
-class login extends Component{
-    render(){
+export default function login(){
         const bodyStyle = document.querySelector("body").style;
         bodyStyle.backgroundImage = "linear-gradient(to bottom, #F6F6F2, #C2EDCE)";
         bodyStyle.height = "100%"
@@ -49,7 +48,4 @@ class login extends Component{
                 </div>
             </div>
         )
-    }
 }
-
-export default login;
