@@ -10,6 +10,7 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
+  CLEAR_ERRORS,
   AUTH_ERROR,
 } from "../types";
 
@@ -42,7 +43,7 @@ const AuthState = (props) => {
   const register = async (formData) => {
     const config = {
       headers: {
-        "Content-Type": "application.vnd/api+json",
+        "Content-Type": "application/json",
       },
     };
 
@@ -54,9 +55,10 @@ const AuthState = (props) => {
       });
       loadUser();
     } catch (error) {
+      console.error(error);
       dispatch({
         type: REGISTER_FAIL,
-        payload: error.response.data.message,
+        payload: error.response.data.errors[0].error,
       });
     }
   };
@@ -65,7 +67,7 @@ const AuthState = (props) => {
   const loginUser = async (formData) => {
     const config = {
       headers: {
-        "Content-Type": "application.vnd/api+json",
+        "Content-Type": "application/json",
       },
     };
     try {
@@ -79,13 +81,14 @@ const AuthState = (props) => {
     } catch (error) {
       dispatch({
         type: LOGIN_FAIL,
-        payload: error.response.data.message,
+        payload: error.response.data.errors[0].error,
       });
     }
   };
 
   //logout User
   const logoutUser = () => dispatch({ type: LOGOUT });
+  const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
 
   return (
     <AuthContext.Provider
@@ -99,6 +102,7 @@ const AuthState = (props) => {
         loadUser,
         loginUser,
         logoutUser,
+        clearErrors,
       }}
     >
       {props.children}

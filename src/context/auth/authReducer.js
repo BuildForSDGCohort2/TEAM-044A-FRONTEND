@@ -4,6 +4,7 @@ import {
   REGISTER_SUCCESS,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
+  CLEAR_ERRORS,
   LOGOUT,
   AUTH_ERROR,
 } from "../types";
@@ -38,6 +39,11 @@ export default (state, action) => {
         loading: false,
         user: null,
         error: action.payload,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
       };
 
     default:
