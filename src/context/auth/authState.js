@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import dotenv from "dotenv";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
 import axios from "axios";
@@ -14,6 +15,8 @@ import {
   AUTH_ERROR,
 } from "../types";
 
+dotenv.config();
+
 const AuthState = (props) => {
   const initialState = {
     token: localStorage.getItem("token"),
@@ -25,6 +28,8 @@ const AuthState = (props) => {
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
+  const AUTH_URL = "https://moneyguard.herokuapp.com/api/v1/auth";
+  const USER_URL = "https://moneyguard.herokuapp.com/api/v1/users";
   // LOAD USER
   const loadUser = async () => {
     if (localStorage.token) {
@@ -32,7 +37,7 @@ const AuthState = (props) => {
     }
 
     try {
-      const res = await axios.get("/api/v1/auth");
+      const res = await axios.get(AUTH_URL);
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (error) {
       dispatch({ type: AUTH_ERROR });
@@ -48,14 +53,13 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post("/api/v1/users", formData, config);
+      const res = await axios.post(USER_URL, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
       loadUser();
     } catch (error) {
-      console.error(error);
       dispatch({
         type: REGISTER_FAIL,
         payload: error.response.data.errors[0].error,
@@ -71,7 +75,7 @@ const AuthState = (props) => {
       },
     };
     try {
-      const res = await axios.post("/api/v1/auth", formData, config);
+      const res = await axios.post(AUTH_URL, formData, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -88,7 +92,8 @@ const AuthState = (props) => {
 
   //logout User
   const logoutUser = () => dispatch({ type: LOGOUT });
-  const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+  const clearErrors = () =>
+    setTimeout(() => dispatch({ type: CLEAR_ERRORS }), 2000);
 
   return (
     <AuthContext.Provider

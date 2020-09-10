@@ -3,15 +3,26 @@ import React, { Fragment } from "react";
 const Form = (props) => {
   return (
     <Fragment>
-      <div
-        className={`${
-          props.cardclass ? "card d-flex justify-content-center mt-5" : ""
-        }`}
-      >
-        <form className={`${props.formclass ? "p-5" : ""} `} {...props}>
+      {props.bootstrap ? (
+        <div
+          className={props.cardclass ? props.cardclass : null}
+          id={props.divid}
+        >
+          <form
+            className={props.formclass ? props.formclass : null}
+            onSubmit={props.onSubmit}
+          >
+            {props.children}
+          </form>
+        </div>
+      ) : (
+        <form
+          className={props.formclass ? props.formclass : null}
+          onSubmit={props.onSubmit}
+        >
           {props.children}
         </form>
-      </div>
+      )}
     </Fragment>
   );
 };

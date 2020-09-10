@@ -62,7 +62,7 @@ export default function Transactions() {
                     <p className="text-warning text-muted">
                       Status - Awaiting Confirmation
                     </p>
-                    <div className="btn-group dropright">
+                    <div class="btn-group dropright">
                       <button
                         className="ml-1 btn btn-dark dropdown-toggle"
                         data-toggle="dropdown"
@@ -71,21 +71,21 @@ export default function Transactions() {
                       >
                         <i className="fa fa-eye"></i> View details
                       </button>
-                      <div className="dropdown-menu">
-                        <ul className="list-group list-group-flush">
-                          <li className="list-group-item">
+                      <div class="dropdown-menu">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
                             <strong>Amount: </strong> N1000
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Ref number: </strong>012345
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Email: </strong>johndoe@mail.com
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>ID: </strong>67890
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Status: </strong>Awaiting Confirmation
                           </li>
                         </ul>
@@ -103,7 +103,7 @@ export default function Transactions() {
                     <p className="text-warning text-muted">
                       Status - Awaiting Confirmation
                     </p>
-                    <div className="btn-group dropright">
+                    <div class="btn-group dropright">
                       <button
                         className="ml-1 btn btn-dark dropdown-toggle"
                         data-toggle="dropdown"
@@ -112,21 +112,21 @@ export default function Transactions() {
                       >
                         <i className="fa fa-eye"></i> View details
                       </button>
-                      <div className="dropdown-menu">
-                        <ul className="list-group list-group-flush">
-                          <li className="list-group-item">
+                      <div class="dropdown-menu">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
                             <strong>Amount: </strong> N1000
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Ref number: </strong>012345
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Email: </strong>johndoe@mail.com
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>ID: </strong>67890
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Status: </strong>Awaiting Confirmation
                           </li>
                         </ul>
@@ -144,7 +144,7 @@ export default function Transactions() {
                     <p className="text-warning text-muted">
                       Status - Awaiting Confirmation
                     </p>
-                    <div className="btn-group dropright">
+                    <div class="btn-group dropright">
                       <button
                         className="ml-1 btn btn-dark dropdown-toggle"
                         data-toggle="dropdown"
@@ -153,21 +153,21 @@ export default function Transactions() {
                       >
                         <i className="fa fa-eye"></i> View details
                       </button>
-                      <div className="dropdown-menu">
-                        <ul className="list-group list-group-flush">
-                          <li className="list-group-item">
+                      <div class="dropdown-menu">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
                             <strong>Amount: </strong> N1000
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Ref number: </strong>012345
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Email: </strong>johndoe@mail.com
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>ID: </strong>67890
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Status: </strong>Awaiting Confirmation
                           </li>
                         </ul>
@@ -188,7 +188,7 @@ export default function Transactions() {
                     <p className="text-warning text-muted">
                       Status - Awaiting Confirmation
                     </p>
-                    <div className="btn-group dropright">
+                    <div class="btn-group dropright">
                       <button
                         className="ml-1 btn btn-dark dropdown-toggle"
                         data-toggle="dropdown"
@@ -197,21 +197,21 @@ export default function Transactions() {
                       >
                         <i className="fa fa-eye"></i> View details
                       </button>
-                      <div className="dropdown-menu">
-                        <ul className="list-group list-group-flush">
-                          <li className="list-group-item">
+                      <div class="dropdown-menu">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
                             <strong>Amount: </strong> N1000
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Ref number: </strong>012345
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Email: </strong>johndoe@mail.com
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>ID: </strong>67890
                           </li>
-                          <li className="list-group-item">
+                          <li class="list-group-item">
                             <strong>Status: </strong>Awaiting Confirmation
                           </li>
                         </ul>
