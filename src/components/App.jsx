@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
 
-import Navbar from './Navbar/navbar';
-import LandingPage from './Landing/landing';
-import Login from './Login/login';
-import Signup from './Signup/signup';
-import Dashboard from './Dashboard/index';
-import Footer from './Footer/footer';
+import Navbar from "./Navbar/navbar";
+import LandingPage from "./Landing/landing";
+import Login from "./Login/login";
+import Signup from "./auth/signup";
+import Dashboard from "./Dashboard/index";
+import Footer from "./Footer/footer";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
       </Switch>
 
       <div className="">
-        < Footer />
+        <Footer />
       </div>
     </main>
   );
