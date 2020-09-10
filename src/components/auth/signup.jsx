@@ -48,6 +48,7 @@ export default function Signup(props) {
 
   useEffect(() => {
     if (isAuthenticated) {
+      successMessage();
       props.history.push("/login");
     }
 
