@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import Form from "../Form/Form";
-import Input from "../Input/Input";
-import LabelContainer from "../Label/LabelContainer";
-import LabelInfo from "../Label/LabelInfo";
-import InputContainer from "../Input/InputContainer";
-import Button from "../Button/Button";
+import Form from "../../Form/Form";
+import Input from "../../Input/Input";
+import LabelContainer from "../../Label/LabelContainer";
+import LabelInfo from "../../Label/LabelInfo";
+import InputContainer from "../../Input/InputContainer";
+import Button from "../../Button/Button";
 
 const RegColumn = ({
   firstName,
@@ -107,7 +107,7 @@ const RegColumn = ({
           {!loadBtn ? (
             <Button type="submit" id="btn-register" name="Register" />
           ) : (
-            <Button type="submit" spinner id="btn-register" name="Register" />
+            <Button type="submit" spinner id="btn-register" />
           )}
         </Form>
       </div>

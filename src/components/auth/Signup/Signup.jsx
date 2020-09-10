@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AuthContext from "../../context/auth/authContext";
-import RegContainer from "../Register/RegContainer";
-import RegInfo from "../Register/RegInfo";
-import RegColumn from "../Register/RegColumn";
+import AuthContext from "../../../context/auth/authContext";
+import RegContainer from "./RegContainer";
+import RegInfo from "./RegInfo";
+import RegColumn from "./RegColumn";
 import "./signup.css";
 
 // toast messages
@@ -44,8 +44,6 @@ export default function Signup(props) {
     phoneNumber: "",
   });
 
-  const { firstName, lastName, email, password, username, phoneNumber } = user;
-
   useEffect(() => {
     if (isAuthenticated) {
       successMessage();
@@ -61,6 +59,7 @@ export default function Signup(props) {
     //eslint-disable-next-line
   }, [isAuthenticated, error, props.history]);
 
+  const { firstName, lastName, email, password, username, phoneNumber } = user;
   const onChange = (e) =>
     setUser({ ...user, [e.target.name]: [e.target.value] });
 
@@ -76,7 +75,7 @@ export default function Signup(props) {
       !phoneNumber
     ) {
       missingValue("Please enter all fields");
-      updateLoadBtn(null);
+      updateLoadBtn(false);
       clearErrors();
     } else {
       register({

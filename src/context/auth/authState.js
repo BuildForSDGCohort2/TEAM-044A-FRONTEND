@@ -60,7 +60,6 @@ const AuthState = (props) => {
       });
       loadUser();
     } catch (error) {
-      console.error(error);
       dispatch({
         type: REGISTER_FAIL,
         payload: error.response.data.errors[0].error,
@@ -93,7 +92,8 @@ const AuthState = (props) => {
 
   //logout User
   const logoutUser = () => dispatch({ type: LOGOUT });
-  const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+  const clearErrors = () =>
+    setTimeout(() => dispatch({ type: CLEAR_ERRORS }), 2000);
 
   return (
     <AuthContext.Provider

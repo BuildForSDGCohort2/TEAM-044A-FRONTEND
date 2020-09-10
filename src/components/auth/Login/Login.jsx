@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import AuthContext from "../../context/auth/authContext";
-import AlertContext from "../../context/alert/alertContext";
-import LoginContainer from "../Login/LoginContainer";
-import LoginForm from "../Login/LoginForm";
+import AuthContext from "../../../context/auth/authContext";
+import LoginContainer from "./LoginContainer";
+import LoginForm from "./LoginForm";
 import "./login.css";
 
 // toast messages
@@ -33,9 +31,7 @@ const missingValue = (val) =>
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
-  const alertContext = useContext(AlertContext);
   const { loginUser, clearErrors, isAuthenticated, error } = authContext;
-  const { setAlert } = alertContext;
   const [loadBtn, updateLoadBtn] = useState(false);
   const [user, setUser] = useState({
     email: "",
@@ -66,7 +62,7 @@ const Login = (props) => {
     updateLoadBtn(true);
     if (!email || !password) {
       missingValue("Please enter all fields");
-      updateLoadBtn(null);
+      updateLoadBtn(false);
       clearErrors();
     } else {
       loginUser({
