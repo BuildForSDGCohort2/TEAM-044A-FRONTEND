@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import Form from "../Form/Form";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
+import Form from "../../Form/Form";
+import Input from "../../Input/Input";
+import Button from "../../Button/Button";
 
 const LoginForm = ({ email, password, onSubmit, onChange, loadBtn }) => {
   const bodyStyle = document.querySelector("body").style;
@@ -46,7 +46,7 @@ const LoginForm = ({ email, password, onSubmit, onChange, loadBtn }) => {
           {!loadBtn ? (
             <Button type="submit" className="btn" name="Submit" />
           ) : (
-            <Button type="submit" spinner className="btn" name="Submit" />
+            <Button type="submit" spinner className="btn" />
           )}
         </Form>
       </div>

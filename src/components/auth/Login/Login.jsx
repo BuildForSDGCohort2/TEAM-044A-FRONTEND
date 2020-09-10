@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Fragment } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import AuthContext from "../../context/auth/authContext";
-import AlertContext from "../../context/alert/alertContext";
-import Form from "../Form/Form";
-import Input from "../Form/Input";
-import Button from "../Button/Button";
+import AuthContext from "../../../context/auth/authContext";
+import LoginContainer from "./LoginContainer";
+import LoginForm from "./LoginForm";
+import "./login.css";
 
 // toast messages
 const successMessage = () =>
@@ -33,9 +31,7 @@ const missingValue = (val) =>
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
-  const alertContext = useContext(AlertContext);
   const { loginUser, clearErrors, isAuthenticated, error } = authContext;
-  const { setAlert } = alertContext;
   const [loadBtn, updateLoadBtn] = useState(false);
   const [user, setUser] = useState({
     email: "",
@@ -60,13 +56,13 @@ const Login = (props) => {
   const onChange = (e) =>
     setUser({ ...user, [e.target.name]: [e.target.value] });
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     updateLoadBtn(true);
     if (!email || !password) {
       missingValue("Please enter all fields");
-      updateLoadBtn(null);
+      updateLoadBtn(false);
       clearErrors();
     } else {
       loginUser({
@@ -77,41 +73,18 @@ const Login = (props) => {
   };
 
   return (
-    <section className="container">
+    <Fragment>
       <ToastContainer />
-      <Form
-        formclass="p-5"
-        cardclass="card d-flex justify-content-center mt-5"
-        onSubmit={handleSubmit}
-      >
-        <h4>Login</h4>
-        <Input
-          type="email"
-          className="form-control"
-          placeholder="Email Address"
-          value={email}
-          name="email"
+      <LoginContainer>
+        <LoginForm
+          email={email}
           onChange={onChange}
-          label="email"
-          labeltitle="Email Address"
+          onSubmit={onSubmit}
+          password={password}
+          loadBtn={loadBtn}
         />
-        <Input
-          type="password"
-          className="form-control"
-          placeholder="Password"
-          value={password}
-          name="password"
-          onChange={onChange}
-          label="password"
-          labeltitle="Password"
-        />
-        {!loadBtn ? (
-          <Button name="Login" type="submit" className="btn btn-info mt-2" />
-        ) : (
-          <Button spinner type="submit" className="btn btn-success" />
-        )}
-      </Form>
-    </section>
+      </LoginContainer>
+    </Fragment>
   );
 };
 
