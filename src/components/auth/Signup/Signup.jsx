@@ -31,7 +31,7 @@ const missingValue = (val) =>
     type: "error",
   });
 
-export default function Signup(props) {
+const Signup = (props) => {
   const authContext = useContext(AuthContext);
   const { register, clearErrors, isAuthenticated, error } = authContext;
   const [loadBtn, updateLoadBtn] = useState(false);
@@ -47,7 +47,7 @@ export default function Signup(props) {
   useEffect(() => {
     if (isAuthenticated) {
       successMessage();
-      props.history.push("/login");
+      props.history.push("/dashboard");
     }
 
     if (error) {
@@ -60,8 +60,7 @@ export default function Signup(props) {
   }, [isAuthenticated, error, props.history]);
 
   const { firstName, lastName, email, password, username, phoneNumber } = user;
-  const onChange = (e) =>
-    setUser({ ...user, [e.target.name]: [e.target.value] });
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -107,4 +106,6 @@ export default function Signup(props) {
       </RegContainer>
     </Fragment>
   );
-}
+};
+
+export default Signup;
