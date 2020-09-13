@@ -1,12 +1,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import MainDashboard from "./dashboard";
+import MainDashboard from "./Dashboard";
 import Sidenav from "../../layouts/SideNav/sidenav";
-import Transactions from "./transactions";
-import Disputes from "./disputes";
-import Settings from "./settings";
-import CreateTransaction from "./create-tansaction";
-import ConfirmDelivery from "./confirm-delivery";
+import Transactions from "../Transactions/Transactions";
+import Disputes from "../Disputes/Dispute";
+import Settings from "../Settings/Settings";
+import TransactionForm from "../Transactions/TransactionForm";
+import ConfirmDelivery from "../Delivery/Delivery";
+import TransactionItem from "../Transactions/TransactionItem";
 
 export default function Dashboard() {
   return (
@@ -21,13 +22,19 @@ export default function Dashboard() {
             <Route path="/dashboard/transactions" component={Transactions} />
             <Route
               path="/dashboard/create-transactions"
-              component={CreateTransaction}
+              component={TransactionForm}
             />
-            <Route path="/dashboard/disputes" component={Disputes} />
-            <Route path="/dashboard/settings" component={Settings} />
+            <Route exact path="/dashboard/disputes" component={Disputes} />
+            <Route rxact path="/dashboard/settings" component={Settings} />
             <Route
+              exact
               path="/dashboard/confirm-delivery"
               component={ConfirmDelivery}
+            />
+            <Route
+              exact
+              path="/transaction/:reference"
+              component={TransactionItem}
             />
           </Switch>
         </div>

@@ -6,11 +6,16 @@ import AuthContext from "../../context/auth/authContext";
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated } = authContext;
+  const loggedInUser = localStorage.getItem("token");
   return (
     <Route
       {...rest}
       render={(props) =>
-        !isAuthenticated ? <Redirect to="/login" /> : <Component {...props} />
+        !loggedInUser || !isAuthenticated ? (
+          <Redirect to="/login" />
+        ) : (
+          <Component {...props} />
+        )
       }
     />
   );

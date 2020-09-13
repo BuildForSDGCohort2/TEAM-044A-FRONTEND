@@ -9,7 +9,9 @@ const Navbar = () => {
 
   const authLinks = (
     <Fragment>
-      <li style={{ listStyle: "none" }}>Hello {user && user.firstName}</li>
+      <li style={{ listStyle: "none" }}>
+        {user ? user.map((name) => `Hello ${name.firstName}`) : "Hello User"}
+      </li>
       <li style={{ listStyle: "none" }}>
         <button onClick={onLogout} className="btn btn-info  my-sm-0">
           <i className="fas fa-sign-out-alt" />

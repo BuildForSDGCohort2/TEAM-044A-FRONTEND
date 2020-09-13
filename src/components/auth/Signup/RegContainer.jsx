@@ -1,12 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 const RegContainer = (props) => {
   return (
-    <Fragment>
-      <div id="container-fluid" className={props.className}>
-        <div id="reg-form-container">{props.children}</div>
-      </div>
-    </Fragment>
+    <div id="container-fluid" className={props.className}>
+      <div id="reg-form-container">{props.children}</div>
+    </div>
   );
 };
 

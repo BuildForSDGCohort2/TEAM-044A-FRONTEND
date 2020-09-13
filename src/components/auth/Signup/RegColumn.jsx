@@ -107,8 +107,8 @@ const RegColumn = ({
           {!loadBtn ? (
             <Button type="submit" id="btn-register" name="Register" />
           ) : (
-            <Button type="submit" spinner id="btn-register" />
-          )}
+              <Button type="submit" spinner id="btn-register" />
+            )}
         </Form>
       </div>
     </Fragment>
