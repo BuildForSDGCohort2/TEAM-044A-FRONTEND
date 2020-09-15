@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import MainDashboard from "./Dashboard";
+import MainDashboard from "./dashboard";
 import Sidenav from "../../layouts/SideNav/sidenav";
 import Transactions from "../Transactions/Transactions";
 import Disputes from "../Disputes/Dispute";
