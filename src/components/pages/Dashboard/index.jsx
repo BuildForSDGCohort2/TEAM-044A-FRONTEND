@@ -5,7 +5,7 @@ import Sidenav from "../../layouts/SideNav/sidenav";
 import Transactions from "./transactions";
 import Disputes from "./disputes";
 import Settings from "./settings";
-import CreateTransaction from "./create-tansaction";
+import CreateTransaction from "./create-transaction";
 import ConfirmDelivery from "./confirm-delivery";
 
 export default function Dashboard() {
