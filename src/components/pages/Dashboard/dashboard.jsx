@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../../../context/auth/authContext";
 
 export default function MainDashboard() {
+  const authContext = useContext(AuthContext);
+  const { loadUser, user } = authContext;
+  // const { firstName } = user;
+
+  useEffect(() => {
+    loadUser();
+
+    //eslint-disable-next-line
+  }, []);
   return (
     <section className="container">
       <div className="row">
@@ -9,7 +20,11 @@ export default function MainDashboard() {
             className="bg-secondary p-3 shadow text-white rounded"
             style={{ height: "10vh" }}
           >
-            <h5>User Dashboard Overview</h5>
+            {user ? (
+              user.map((name) => <h5>{name.firstName} Dashboard</h5>)
+            ) : (
+              <h5> User Dashboard</h5>
+            )}
           </div>
         </div>
       </div>
@@ -18,9 +33,9 @@ export default function MainDashboard() {
           <div className="card p-3 h-100 bg-info shadow text-white rounded text-center">
             <i className="fas fa-plus-circle fa-2x text-white mb-5"></i>
             <h5>
-              <a href="/dashboard/create-transactions" className="text-white">
+              <Link to="/dashboard/create-transactions" className="text-white">
                 Create Transaction
-              </a>
+              </Link>
             </h5>
           </div>
         </div>

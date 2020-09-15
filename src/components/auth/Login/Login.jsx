@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../../../context/auth/authContext";
 import LoginContainer from "./LoginContainer";
 import LoginForm from "./LoginForm";
@@ -17,6 +18,7 @@ const successMessage = () =>
     progress: undefined,
     type: "success",
   });
+
 const missingValue = (val) =>
   toast(val, {
     position: "top-right",
@@ -33,16 +35,16 @@ const Login = (props) => {
   const authContext = useContext(AuthContext);
   const { loginUser, clearErrors, isAuthenticated, error } = authContext;
   const [loadBtn, updateLoadBtn] = useState(false);
-  const [user, setUser] = useState({
+  const [user, setUserInfo] = useState({
     email: "",
     password: "",
   });
 
   useEffect(() => {
     if (isAuthenticated) {
-      successMessage();
       props.history.push("/dashboard");
     }
+
     if (error) {
       missingValue(error);
       updateLoadBtn(false);
@@ -54,7 +56,7 @@ const Login = (props) => {
   const { email, password } = user;
 
   const onChange = (e) =>
-    setUser({ ...user, [e.target.name]: [e.target.value] });
+    setUserInfo({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();

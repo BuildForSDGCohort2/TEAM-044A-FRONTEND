@@ -30,6 +30,7 @@ const AuthState = (props) => {
 
   const AUTH_URL = "https://moneyguard.herokuapp.com/api/v1/auth";
   const USER_URL = "https://moneyguard.herokuapp.com/api/v1/users";
+
   // LOAD USER
   const loadUser = async () => {
     if (localStorage.token) {
@@ -54,6 +55,7 @@ const AuthState = (props) => {
 
     try {
       const res = await axios.post(USER_URL, formData, config);
+      console.log(res.data.user);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -83,6 +85,7 @@ const AuthState = (props) => {
 
       loadUser();
     } catch (error) {
+      console.log(error);
       dispatch({
         type: LOGIN_FAIL,
         payload: error.response.data.errors[0].error,

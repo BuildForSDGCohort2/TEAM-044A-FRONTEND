@@ -16,13 +16,16 @@ const Form = (props) => {
           </form>
         </div>
       ) : (
-        <form
-          className={props.formclass ? props.formclass : null}
-          onSubmit={props.onSubmit}
-        >
-          {props.children}
-        </form>
-      )}
+          <form
+            className={props.formclass ? props.formclass : null}
+            onSubmit={props.onSubmit}
+            {...props}
+          >
+            {props.children}
+          </form>
+        ) || props.transaction ? (
+        <form {...props}>{props.children}</form>
+      ) : null}
     </Fragment>
   );
 };

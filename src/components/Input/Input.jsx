@@ -14,13 +14,13 @@ const Input = (props) => {
           />
         </div>
       ) : (
-        <input
-          type={props.type ? props.type : "text"}
-          className={props.className ? props.className : null}
-          {...props}
-          onChange={props.onChange}
-        />
-      )}
+          <input
+            type={props.type ? props.type : "text"}
+            className={props.className ? props.className : null}
+            {...props}
+            onChange={props.onChange}
+          />
+        )}
     </Fragment>
   );
 };
