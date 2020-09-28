@@ -14,6 +14,7 @@ import {
   CLEAR_ERRORS,
   AUTH_ERROR,
 } from "../types";
+import API_URL from "../../config/url";
 
 dotenv.config();
 
@@ -28,9 +29,6 @@ const AuthState = (props) => {
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  const AUTH_URL = "https://moneyguard.herokuapp.com/api/v1/auth";
-  const USER_URL = "https://moneyguard.herokuapp.com/api/v1/users";
-
   // LOAD USER
   const loadUser = async () => {
     if (localStorage.token) {
@@ -38,7 +36,7 @@ const AuthState = (props) => {
     }
 
     try {
-      const res = await axios.get(AUTH_URL);
+      const res = await axios.get(`${API_URL}/auth`);
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (error) {
       dispatch({ type: AUTH_ERROR });
@@ -54,11 +52,10 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post(USER_URL, formData, config);
-      console.log(res.data.user);
+      const res = await axios.post(`${API_URL}/users`, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
-        payload: res.data,
+        payload: res.data.data[0],
       });
       loadUser();
     } catch (error) {
@@ -77,7 +74,7 @@ const AuthState = (props) => {
       },
     };
     try {
-      const res = await axios.post(AUTH_URL, formData, config);
+      const res = await axios.post(`${API_URL}/auth`, formData, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -85,7 +82,6 @@ const AuthState = (props) => {
 
       loadUser();
     } catch (error) {
-      console.log(error);
       dispatch({
         type: LOGIN_FAIL,
         payload: error.response.data.errors[0].error,

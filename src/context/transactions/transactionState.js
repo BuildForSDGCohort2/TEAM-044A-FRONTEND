@@ -10,6 +10,7 @@ import {
   TRANSACTION_ERROR,
   CLEAR_FIELDS,
 } from "../types";
+import API_URL from "../../config/url";
 
 const TransactionState = (props) => {
   const initialState = {
@@ -21,8 +22,6 @@ const TransactionState = (props) => {
 
   const [state, dispatch] = useReducer(transactionReducer, initialState);
 
-  const TRANSACTION_URL =
-    "https://moneyguard.herokuapp.com/api/v1/transactions";
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +30,7 @@ const TransactionState = (props) => {
 
   const addTransaction = async (formData) => {
     try {
-      const res = await axios.post(`${TRANSACTION_URL}`, formData, config);
+      const res = await axios.post(`${API_URL}/transactions`, formData, config);
       dispatch({ type: ADD_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -43,7 +42,7 @@ const TransactionState = (props) => {
 
   const getTransaction = async (ref) => {
     try {
-      const res = await axios.get(`${TRANSACTION_URL}/${ref}`);
+      const res = await axios.get(`${API_URL}/transactions/${ref}`);
       dispatch({ type: GET_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -55,10 +54,7 @@ const TransactionState = (props) => {
 
   const loadTransactions = async () => {
     try {
-      const res = await axios.get(
-        "https://moneyguard.herokuapp.com/api/v1/auth"
-      );
-      console.log(res.data.data);
+      const res = await axios.get(`${API_URL}/auth`);
 
       dispatch({
         type: LOAD_TRANSACTIONS,
@@ -69,6 +65,15 @@ const TransactionState = (props) => {
         type: TRANSACTION_ERROR,
         payload: error.response.data.errors[0].error,
       });
+    }
+  };
+
+  const payWithPaystack = async (ref) => {
+    try {
+      const res = await axios.post(`${API_URL}/payment/paystack/pay/${ref}`);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -87,6 +92,7 @@ const TransactionState = (props) => {
         loadTransactions,
         clearError,
         clearFields,
+        payWithPaystack,
       }}
     >
       {props.children}

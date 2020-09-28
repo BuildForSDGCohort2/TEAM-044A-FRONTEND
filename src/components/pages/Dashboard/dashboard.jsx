@@ -1,17 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../context/auth/authContext";
 
 export default function MainDashboard() {
   const authContext = useContext(AuthContext);
-  const { loadUser, user } = authContext;
-  // const { firstName } = user;
-
-  useEffect(() => {
-    loadUser();
-
-    //eslint-disable-next-line
-  }, []);
+  const { user } = authContext;
   return (
     <section className="container">
       <div className="row">
@@ -21,7 +14,7 @@ export default function MainDashboard() {
             style={{ height: "10vh" }}
           >
             {user ? (
-              user.map((name) => <h5>{name.firstName} Dashboard</h5>)
+              <h5 key={user._id}>{user.firstName} Dashboard</h5>
             ) : (
               <h5> User Dashboard</h5>
             )}
