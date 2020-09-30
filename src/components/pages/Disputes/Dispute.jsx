@@ -1,7 +1,61 @@
-import React from "react";
-import axios from "axios";
+import React, { useEffect, useContext, Fragment } from "react";
+import { Link } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
+import DisputeContext from "../../../context/disputes/disputeContext";
+import dateFormatter from "../../../utils/dateFormat";
 
 export default function Disputes() {
+  const disputeContext = useContext(DisputeContext);
+  const { loadDisputes, disputes, loading } = disputeContext;
+
+  useEffect(() => {
+    loadDisputes();
+
+    //eslint-disable-next-line
+  }, []);
+
+  function increaseCount() {
+    let counter = 1;
+    return function increase() {
+      return counter++;
+    };
+  }
+  const counter = increaseCount();
+
+  let accepted = true;
+  const displayDisputes = () => {
+    return disputes.map((dispute) => {
+      if (dispute) {
+        accepted = true;
+        return (
+          <Fragment>
+            <tr>
+              <th scope="row">{counter()}</th>
+              <td className="text-warning">{dispute.disputeStatus}</td>
+              <td>{dateFormatter(dispute.createdAt)}</td>
+              <td>{dispute.decision}</td>
+            </tr>
+          </Fragment>
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "600px",
+        }}
+      >
+        <Spinner animation="border" />;
+      </div>
+    );
+  }
   return (
     <section className="container">
       <div className="row">
@@ -14,47 +68,25 @@ export default function Disputes() {
           </div>
         </div>
       </div>
-
       <div className="text-right my-3">
-        <button className="btn btn-outline-info">New Dispute</button>
+        <Link
+          to="/dashboard/disputes/new-dispute"
+          className="btn btn-outline-info"
+        >
+          New Dispute
+        </Link>
       </div>
-
       <div className="table-responsive">
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">#</th>
               <th scope="col">Status</th>
               <th scope="col">Date</th>
               <th scope="col">Decision</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td className="text-warning">Pending</td>
-              <td>01/02/03</td>
-              <td>lorem ipsum</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td className="text-warning">Pending</td>
-              <td>01/02/03</td>
-              <td>lorem ipsum</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td className="text-success">Resolved</td>
-              <td>01/02/03</td>
-              <td>lorem ipsum</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td className="text-success">Resolved</td>
-              <td>01/02/03</td>
-              <td>lorem ipsum</td>
-            </tr>
-          </tbody>
+          <tbody>{accepted ? displayDisputes() : <p>No Disputes</p>}</tbody>
         </table>
       </div>
     </section>

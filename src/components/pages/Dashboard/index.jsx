@@ -8,6 +8,8 @@ import Settings from "../Settings/Settings";
 import TransactionForm from "../Transactions/TransactionForm";
 import ConfirmDelivery from "../Delivery/Delivery";
 import TransactionItem from "../Transactions/TransactionItem";
+import ErrorBoundary from "../../ErrorBoundary/Error";
+import DisputeForm from "../Disputes/DisputeForm";
 // import AuthContext from "../../../contex/t/auth/authContext";
 
 export default function Dashboard() {
@@ -15,7 +17,9 @@ export default function Dashboard() {
     <section>
       <div className="row mt-3">
         <div className="col-sm-3">
-          <Sidenav />
+          <ErrorBoundary>
+            <Sidenav />
+          </ErrorBoundary>
         </div>
         <div className="col-sm-9">
           <Switch>
@@ -24,6 +28,11 @@ export default function Dashboard() {
             <Route
               path="/dashboard/create-transactions"
               component={TransactionForm}
+            />
+            <Route
+              exact
+              path="/dashboard/disputes/new-dispute"
+              component={DisputeForm}
             />
             <Route exact path="/dashboard/disputes" component={Disputes} />
             <Route rxact path="/dashboard/settings" component={Settings} />

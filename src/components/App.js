@@ -8,6 +8,7 @@ import Signup from "./auth/Signup/Signup";
 import Footer from "./layouts/Footer/footer";
 import AuthState from "../context/auth/authState";
 import TransactionState from "../context/transactions/transactionState";
+import DisputeState from "../context/disputes/disputeState";
 import Email from "./pages/Email/Email";
 import PrivateRoute from "./routing/PrivateRoute";
 import setAuthToken from "../utils/token";
@@ -22,14 +23,16 @@ const App = () => {
   return (
     <AuthState>
       <TransactionState>
-        <Navbar />
-        <Switch>
-          <PrivateRoute path="/dashboard" component={Home} />
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/confirm/:token" component={Email} />
-        </Switch>
+        <DisputeState>
+          <Navbar />
+          <Switch>
+            <PrivateRoute path="/dashboard" component={Home} />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/confirm/:token" component={Email} />
+          </Switch>
+        </DisputeState>
         <Footer />
       </TransactionState>
     </AuthState>

@@ -4,6 +4,7 @@ import axios from "axios";
 import API_URL from "../../../config/url";
 import AuthContext from "../../../context/auth/authContext";
 import { Card, Button } from "react-bootstrap";
+import ErrorBoundary from "../../ErrorBoundary/Error";
 
 const TransactionItem = (props) => {
   const authContext = useContext(AuthContext);
@@ -66,7 +67,7 @@ const TransactionItem = (props) => {
           </div>
         </Fragment>
       );
-    } else if (link === "Accepted and Funded") {
+    } else if (transactionStatus === "Accepted and Funded") {
       return (
         <Fragment>
           <div style={{ margin: "2px" }}>
@@ -83,7 +84,7 @@ const TransactionItem = (props) => {
           </div>
         </Fragment>
       );
-    } else if (link === "In Progress") {
+    } else if (transactionStatus === "In Progress") {
       return (
         <Fragment>
           <div style={{ margin: "2px" }}>
@@ -124,13 +125,13 @@ const TransactionItem = (props) => {
       onSuccess: (details) => paystackSuccess({ amount, details }),
       onClose: () => null,
     };
-    if (link === "Transaction Accepted - Not funded") {
+    if (transactionStatus === "Transaction Accepted - Not funded") {
       return (
         <Fragment>
           <PaystackButton {...componentProps} />
         </Fragment>
       );
-    } else if (link === "Delivered") {
+    } else if (transactionStatus === "Delivered") {
       return (
         <Fragment>
           <div style={{ margin: "2px" }}>
@@ -162,19 +163,21 @@ const TransactionItem = (props) => {
 
   return (
     <Fragment>
-      <Card>
-        <Card.Body>
-          <Card.Title>Title - {transactionTitle}</Card.Title>
-          <Card.Text>Description - {transactionDesc}</Card.Text>
-          <Card.Text>Amount - {amount / 100}</Card.Text>
-          <Card.Text>
-            {user && user.map((u) => u._id)[0] !== initiator
-              ? recipientStatus()
-              : initiatorStatus()}
-            {link}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <ErrorBoundary>
+        <Card>
+          <Card.Body>
+            <Card.Title>Title - {transactionTitle}</Card.Title>
+            <Card.Text>Description - {transactionDesc}</Card.Text>
+            <Card.Text>Amount - {amount / 100}</Card.Text>
+            <Card.Text>
+              {user && user.map((u) => u._id)[0] !== initiator
+                ? recipientStatus()
+                : initiatorStatus()}
+              {transactionStatus}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </ErrorBoundary>
     </Fragment>
   );
 };

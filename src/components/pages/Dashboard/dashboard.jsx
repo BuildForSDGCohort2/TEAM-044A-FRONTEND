@@ -1,67 +1,67 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../context/auth/authContext";
+import AcceptedPayment from "./AcceptedPayment";
+import MyPayment from "./MyPayment";
+import "./style.css";
+import TransactionContext from "../../../context/transactions/transactionContext";
+import { Spinner } from "react-bootstrap";
+import ErrorBoundary from "../../ErrorBoundary/Error";
 
 export default function MainDashboard() {
+  const transactionContext = useContext(TransactionContext);
+  const { loadTransactions, transactions, loading } = transactionContext;
+
+  useEffect(() => {
+    loadTransactions();
+
+    //eslint-disable-next-line
+  }, []);
   const authContext = useContext(AuthContext);
   const { user } = authContext;
   return (
-    <section className="container">
-      <div className="row">
-        <div className="col-md-12">
-          <div
-            className="bg-secondary p-3 shadow text-white rounded"
-            style={{ height: "10vh" }}
-          >
-            {user ? (
-              <h5 key={user._id}>{user.firstName} Dashboard</h5>
-            ) : (
-              <h5> User Dashboard</h5>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-md-6">
-          <div className="card p-3 h-100 bg-info shadow text-white rounded text-center">
-            <i className="fas fa-plus-circle fa-2x text-white mb-5"></i>
-            <h5>
-              <Link to="/dashboard/create-transactions" className="text-white">
+    <Fragment>
+      <section className="container">
+        <div className="row">
+          <div className="dashboardHeader col-md-12  shadow text-black  rounded d-flex justify-content-between">
+            <div className="pt-3 " style={{ height: "10vh" }}>
+              {user &&
+                user.map((person) => (
+                  <h5 key={person._id}>{person.firstName} Dashboard</h5>
+                ))}
+            </div>
+            <div className="headerLink rounded">
+              <Link
+                to="/dashboard/create-transactions"
+                className="link text-info "
+              >
                 Create Transaction
               </Link>
-            </h5>
-          </div>
-        </div>
-        <div className="col-md-6 not-default">
-          <div className="card p-3  pt-3 h-100 rounded">
-            <div className="text-center">
-              <i className="fas fa-chart-line fa-2x text-muted mb-5"></i>
-              <h2 className="text-muted">0</h2>
-              <p className="text-uppercase">total transactions</p>
             </div>
           </div>
         </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-md-6 not-default">
-          <div className="card p-3  pt-3 h-100  rounded">
-            <div className="text-center">
-              <i className="fas fa-clipboard-check fa-2x text-muted mb-5"></i>
-              <h2 className="text-muted">0</h2>
-              <p className="text-uppercase">Accepted Transactions</p>
-            </div>
+        {loading ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "500px",
+            }}
+          >
+            <Spinner animation="grow" />
           </div>
-        </div>
-        <div className="col-md-6 not-default">
-          <div className="card p-3  h-100  rounded">
-            <div className="text-center">
-              <i className="fas fa-chart-pie fa-2x text-muted mb-5"></i>
-              <h2 className="text-muted">0</h2>
-              <p className="text-uppercase">Completed Transactions</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        ) : (
+          <Fragment>
+            <ErrorBoundary>
+              <AcceptedPayment transactions={transactions} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <MyPayment transactions={transactions} />
+            </ErrorBoundary>
+          </Fragment>
+        )}
+      </section>
+    </Fragment>
   );
 }
