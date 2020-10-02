@@ -5,6 +5,7 @@ import LabelContainer from "../../Label/LabelContainer";
 import LabelInfo from "../../Label/LabelInfo";
 import InputContainer from "../../Input/InputContainer";
 import Button from "../../Button/Button";
+import background from "../../assets/images/signup.png";
 
 const RegColumn = ({
   firstName,
@@ -18,8 +19,10 @@ const RegColumn = ({
   loadBtn,
 }) => {
   const bodyStyle = document.querySelector("body").style;
-  bodyStyle.backgroundImage = "linear-gradient(to bottom, #F6F6F2, #C2EDCE)";
+  bodyStyle.backgroundImage = `url(${background})`;
+  bodyStyle.backgroundPosition = "center";
   bodyStyle.backgroundRepeat = "no-repeat";
+  bodyStyle.backgroundSize = "cover";
   bodyStyle.overflow = "hidden";
   bodyStyle.height = "100%";
   bodyStyle.fontFamily = "Rubik, sans-serif";

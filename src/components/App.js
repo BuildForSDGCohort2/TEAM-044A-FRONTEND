@@ -33,7 +33,7 @@ const App = () => {
             <Route exact path="/confirm/:token" component={Email} />
           </Switch>
         </DisputeState>
-        <Footer />
+        {/* <Footer /> */}
       </TransactionState>
     </AuthState>
   );
