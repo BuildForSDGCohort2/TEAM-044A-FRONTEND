@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+
 body{
   overflow-y: scroll !important;
 }
@@ -7,10 +10,28 @@ body{
   font-weight: 700;
   margin-top: 3em;
   line-height: 1.5em;
+  text-transform: capitalize;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+button#signup{
+  background-color: #029ab2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+button#signup:hover {
+  background-color:  white;
+  color:#029ab2;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
 }
 
 .showcaseText {
   letter-spacing: 0.8px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
 }
 
 .buttons .first {
@@ -24,7 +45,9 @@ body{
 
 .jumbotron h5 {
   letter-spacing: 1px;
-  font-weight: 700;
+  text-transform: capitalize;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.3em;
 }
 
 .jumbotron .solution1 .imageArea img {
@@ -46,10 +69,13 @@ body{
 
 .wrapper .box1 img {
   width: 6rem;
+  height: 6rem;
 }
 
 .wrapper .box1 p {
   width: 83%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
 }
 
 .jumbotronBoxes {
@@ -71,12 +97,30 @@ body{
   .jumbotron .solution1 .textarea {
     width: 50%;
     margin-top: 4rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
   }
 
   .jumbotron .solution1 .textarea p {
     width: 70%;
     line-height: 2em;
     letter-spacing: 1px;
+  }
+  
+  .jumbotron .solution2 .textarea p {
+    width: 70%;
+    line-height: 2em;
+    letter-spacing: 1px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
+    padding-bottom: 0px;
+  }
+  
+  .textarea > ul {
+    border: none;
+    list-style-type: square;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
   }
 
   .jumbotron .solution2 {
@@ -105,6 +149,11 @@ body{
   .jumbotronBoxes {
     display: flex;
     justify-content: center;
+  }
+  
+  .jumbotronBoxes p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
   }
 
   .jumbotronBoxes .jumbotron {

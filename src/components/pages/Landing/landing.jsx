@@ -13,7 +13,7 @@ export default function LandingPage() {
         <h4 className="showcaseHeader">Making safe and secure payments</h4>
         <p className="pt-2 showcaseText">
           MoneyGuard provides payment security for business and individual
-          across nigeria
+          across Nigeria.
         </p>
 
         <div className="buttons d-flex p-2 bd-highlight ">
@@ -41,7 +41,7 @@ export default function LandingPage() {
               transaction
             </p>
           </div>
-          <div className="imageArea">
+          <div className="imageArea mt-4">
             <img src={Card} alt="" />
           </div>
         </div>
@@ -51,24 +51,24 @@ export default function LandingPage() {
             <img src={Creditcard} alt="" />
           </div>
           <div className="textarea">
-            <h5 className="text-capitalize">
+            <h5>
               offering payment guarantee for e-commerce
             </h5>
             <p>
-              for quality assurance when transacting online or buying from
-              strangers
+              For quality assurance when transacting online or buying from
+              strangers.
             </p>
-            <ul className="list-group">
-              <li className="list-group-item">
-                provides a safe enviroment for anti-theft monetary transaction
-              </li>
-              <li className="list-group-item">
-                directing equal transaction between two transacting parties
-              </li>
-              <li className="list-group-item">
-                providing a fully transparent transaction process
-              </li>
-            </ul>
+              <ul>
+                <li>
+                  Provides a safe enviroment for anti-theft monetary transaction
+                </li>
+                <li>
+                  Directing equal transaction between two transacting parties
+                </li>
+                <li>
+                  Providing a fully transparent transaction process
+                </li>
+              </ul>
           </div>
         </div>
       </div>
@@ -80,8 +80,8 @@ export default function LandingPage() {
             two factor authorization
           </h5>
           <p className="text-center pt-2">
-            funds release are dependent on authorization of both transacting
-            parties
+            Funds release are dependent on authorization of both transacting
+            parties.
           </p>
         </div>
         <div className="box1">
@@ -90,39 +90,38 @@ export default function LandingPage() {
             customers and client protection
           </h5>
           <p className="text-center pt-2">
-            transacting parties are equally given control in order to receive
-            expected value for transaction
+            Transacting parties are equally given control in order to receive
+            expected value for transaction.
           </p>
         </div>
         <div className="box1">
           <img src={image1} alt="" />
           <h5 className="text-capitalize text-center pt-2">transparency</h5>
           <p className="text-center pt-2">
-            our transaction processes are transparent too both client and
+            Our transaction processes are transparent too both client and
             customers
           </p>
         </div>
       </div>
 
-      <div className="container jumbotronBoxes">
+      <div className="container jumbotronBoxes" style={{textAlign: "center"}}>
         <div className="jumbotron shadow p-3 mb-5 bg-white rounded">
-          <h6 className="p-2">Create an instant Escrow transaction</h6>
+          <h5 className="p-2">Make An Instant Trasaction</h5>
           <p className="p-2">
-            you can create an instant escrow service in less than a minute. in a
-            secure escrow platform for that transaction{" "}
+            You can create an instant escrow service in less than a minute. in a
+            secure escrow platform for that transaction.
           </p>
           <Link to="/login" className="jumobotronlink  p-2">
-            Get Started
+            <button id="signup">Get Started</button>
           </Link>
         </div>
         <div className="jumbotron shadow p-3 mb-5 bg-white rounded ">
-          <h6 className="p-2">open an instant MoneyGuard account now</h6>
+          <h5 className="p-2">open an instant MoneyGuard account now</h5>
           <p className="p-2">
-            you can create an instant escrow service in less than a minute. in a
-            secure escrow platform for that transaction{" "}
+            Once you Sign Up, you will own a MoneyGuard account immediately. Open an account now!.
           </p>
           <Link to="/login" className="jumobotronlink p-2">
-            Get Started
+            <button id="signup">Get Started</button>
           </Link>
         </div>
       </div>
