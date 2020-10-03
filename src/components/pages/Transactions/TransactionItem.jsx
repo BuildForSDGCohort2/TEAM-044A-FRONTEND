@@ -17,7 +17,6 @@ const TransactionItem = (props) => {
     reference,
     email,
     initiator,
-    _id,
   } = props.transaction;
 
   // paystackkk
@@ -30,21 +29,6 @@ const TransactionItem = (props) => {
 
   const transactionRequests = async (link) => {
     await axios.patch(`${API_URL}/transactions/${link}/${reference}`);
-  };
-
-  const disputeRoutes = (type) => {
-    switch (type) {
-      case "post":
-        return axios.post(`${API_URL}/disputes`);
-      case "get":
-        return axios.get(`${API_URL}/disputes`);
-      case "id":
-        return axios.get(`${API_URL}/disputes/${_id}`);
-      case "patch":
-        return axios.patch(`${API_URL}/disputes/${_id}`);
-      default:
-        return axios.get(`${API_URL}/disputes`);
-    }
   };
 
   const recipientStatus = () => {
@@ -142,16 +126,6 @@ const TransactionItem = (props) => {
               }
             >
               Confirm Delivery
-            </Button>
-          </div>
-          <div style={{ margin: "2px" }}>
-            <Button
-              variant="primary"
-              onClick={() =>
-                disputeRoutes("post").then(() => window.location.reload(false))
-              }
-            >
-              Raise Dispute
             </Button>
           </div>
         </Fragment>

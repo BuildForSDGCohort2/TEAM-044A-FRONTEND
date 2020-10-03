@@ -35,7 +35,7 @@ const App = () => {
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/confirm/:token" component={Email} />
+              <Route exact path="/email/verify/:token" component={Email} />
               <Route exact path="/verify" component={VerifyEmail} />
             </Switch>
           </DisputeState>

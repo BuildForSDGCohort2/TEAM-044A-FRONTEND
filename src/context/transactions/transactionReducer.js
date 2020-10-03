@@ -1,18 +1,7 @@
-import {
-  ADD_TRANSACTION,
-  GET_TRANSACTION,
-  LOAD_TRANSACTIONS,
-  CLEAR_FIELDS,
-} from "../types";
+import { GET_TRANSACTION, LOAD_TRANSACTIONS, CLEAR_FIELDS } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
-    case ADD_TRANSACTION:
-      return {
-        ...state,
-        transactions: [action.payload, ...state.transactions],
-        loading: null,
-      };
     case GET_TRANSACTION:
       return {
         ...state,
@@ -23,7 +12,7 @@ export default (state, action) => {
       return {
         ...state,
         transactions: action.payload,
-        loading: null,
+        loading: false,
       };
     case CLEAR_FIELDS:
       return {

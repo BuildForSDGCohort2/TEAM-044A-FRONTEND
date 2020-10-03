@@ -5,15 +5,12 @@ import ErrorBoundary from "../../ErrorBoundary/Error";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, logoutUser, user } = authContext;
+  const { isAuthenticated, logoutUser } = authContext;
   const onLogout = () => logoutUser();
 
   const authLinks = (
     <ErrorBoundary>
       <Fragment>
-        <li style={{ listStyle: "none", marginRight: "2px" }}>
-          {user && user.map((u) => `Hello ${u.firstName}`)}
-        </li>
         <li style={{ listStyle: "none" }}>
           <button onClick={onLogout} className="btn btn-info  my-sm-0">
             <i className="fas fa-sign-out-alt" />

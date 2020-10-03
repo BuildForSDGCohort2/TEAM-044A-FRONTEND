@@ -7,18 +7,6 @@ import RegInfo from "./RegInfo";
 import RegColumn from "./RegColumn";
 import "./signup.css";
 
-// toast messages
-const successMessage = () =>
-  toast("Success!! Redirecting...", {
-    position: "top-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    type: "success",
-  });
 const missingValue = (val) =>
   toast(val, {
     position: "top-right",
@@ -33,7 +21,7 @@ const missingValue = (val) =>
 
 const Signup = (props) => {
   const authContext = useContext(AuthContext);
-  const { register, clearErrors, isAuthenticated, error } = authContext;
+  const { register, clearErrors, error } = authContext;
   const [loadBtn, updateLoadBtn] = useState(false);
   const [user, setUser] = useState({
     firstName: "",
@@ -45,11 +33,6 @@ const Signup = (props) => {
   });
 
   useEffect(() => {
-    if (isAuthenticated) {
-      successMessage();
-      props.history.push("/verify");
-    }
-
     if (error) {
       missingValue(error);
       updateLoadBtn(false);
@@ -57,7 +40,7 @@ const Signup = (props) => {
     }
 
     //eslint-disable-next-line
-  }, [isAuthenticated, error, props.history]);
+  }, [error, props.history]);
 
   const { firstName, lastName, email, password, username, phoneNumber } = user;
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
@@ -84,7 +67,7 @@ const Signup = (props) => {
         password,
         username,
         phoneNumber,
-      });
+      }).then(() => props.history.push("/verify"));
     }
   };
 

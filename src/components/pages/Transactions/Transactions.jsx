@@ -1,8 +1,7 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import TransactionContext from "../../../context/transactions/transactionContext";
 import TransactionItem from "./TransactionItem";
-import Spinner from "../../layouts/Spinner/Spinner";
-import { CardColumns, Card } from "react-bootstrap";
+import { CardColumns, Spinner } from "react-bootstrap";
 
 const Transactions = () => {
   const transactionContext = useContext(TransactionContext);
@@ -13,16 +12,25 @@ const Transactions = () => {
 
     //eslint-disable-next-line
   }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <Spinner animation="border" />
+      </div>
+    );
+  }
   return (
     <Fragment>
       <CardColumns>
-        {transactions !== null && !loading ? (
-          transactions.map((transaction) => (
-            <TransactionItem key={transaction._id} transaction={transaction} />
-          ))
-        ) : <Spinner /> || !transactions ? (
-          <Card.Body>No transactions</Card.Body>
-        ) : null}
+        {transactions !== null && !loading
+          ? transactions.map((transaction) => (
+              <TransactionItem
+                key={transaction._id}
+                transaction={transaction}
+              />
+            ))
+          : null}
       </CardColumns>
     </Fragment>
   );

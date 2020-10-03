@@ -54,7 +54,7 @@ const TransactionState = (props) => {
 
   const loadTransactions = async () => {
     try {
-      const res = await axios.get(`${API_URL}/auth`);
+      const res = await axios.get(`${API_URL}/transactions`);
 
       dispatch({
         type: LOAD_TRANSACTIONS,

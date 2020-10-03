@@ -7,9 +7,10 @@ const Email = (props) => {
   const [confirm, setConfirm] = useState(true);
   useEffect(() => {
     const { token } = props.match.params;
+
     async function confirmEmail() {
       await axios.get(`${API_URL}/email/verify/${token}`).then((res) => {
-        console.log(res);
+        console.log(res.data);
         setConfirm(false);
         setTimeout(function () {
           window.location.href = "http://localhost:3000/login";
