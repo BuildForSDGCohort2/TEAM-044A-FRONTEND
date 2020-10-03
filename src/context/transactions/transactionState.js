@@ -68,15 +68,6 @@ const TransactionState = (props) => {
     }
   };
 
-  const payWithPaystack = async (ref) => {
-    try {
-      const res = await axios.post(`${API_URL}/payment/paystack/pay/${ref}`);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const clearError = () => dispatch({ type: CLEAR_ERRORS });
   const clearFields = () => dispatch({ type: CLEAR_FIELDS });
 
@@ -92,7 +83,6 @@ const TransactionState = (props) => {
         loadTransactions,
         clearError,
         clearFields,
-        payWithPaystack,
       }}
     >
       {props.children}

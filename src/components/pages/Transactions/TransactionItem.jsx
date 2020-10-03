@@ -1,4 +1,4 @@
-import React, { useState, useContext, Fragment } from "react";
+import React, { useContext, Fragment } from "react";
 import { PaystackButton } from "react-paystack";
 import axios from "axios";
 import API_URL from "../../../config/url";
@@ -19,8 +19,6 @@ const TransactionItem = (props) => {
     initiator,
     _id,
   } = props.transaction;
-
-  const [link, setLink] = useState(transactionStatus);
 
   // paystackkk
   const config = {
@@ -139,7 +137,7 @@ const TransactionItem = (props) => {
               variant="primary"
               onClick={() =>
                 transactionRequests("confirm").then(() =>
-                  window.location.reload(false)
+                  window.location.reload()
                 )
               }
             >

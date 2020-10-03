@@ -1,6 +1,7 @@
 import React, { useContext, Fragment } from "react";
 import AuthContext from "../../../context/auth/authContext";
 import { Link } from "react-router-dom";
+import ErrorBoundary from "../../ErrorBoundary/Error";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
@@ -8,32 +9,36 @@ const Navbar = () => {
   const onLogout = () => logoutUser();
 
   const authLinks = (
-    <Fragment>
-      <li style={{ listStyle: "none", marginRight: "2px" }}>
-        {user && user.map((u) => `Hello ${u.firstName}`)}
-      </li>
-      <li style={{ listStyle: "none" }}>
-        <button onClick={onLogout} className="btn btn-info  my-sm-0">
-          <i className="fas fa-sign-out-alt" />
-          <span className="hide-sm">Logout</span>
-        </button>
-      </li>
-    </Fragment>
+    <ErrorBoundary>
+      <Fragment>
+        <li style={{ listStyle: "none", marginRight: "2px" }}>
+          {user && user.map((u) => `Hello ${u.firstName}`)}
+        </li>
+        <li style={{ listStyle: "none" }}>
+          <button onClick={onLogout} className="btn btn-info  my-sm-0">
+            <i className="fas fa-sign-out-alt" />
+            <span className="hide-sm">Logout</span>
+          </button>
+        </li>
+      </Fragment>
+    </ErrorBoundary>
   );
 
   const guestLinks = (
-    <Fragment>
-      <li style={{ listStyle: "none" }}>
-        <Link to="/login" className="btn btn-outline-info my-2 mr-1 my-sm-0">
-          Login
-        </Link>
-      </li>
-      <li style={{ listStyle: "none" }}>
-        <Link to="/signup" className="btn btn-info  my-sm-0">
-          Get started
-        </Link>
-      </li>
-    </Fragment>
+    <ErrorBoundary>
+      <Fragment>
+        <li style={{ listStyle: "none" }}>
+          <Link to="/login" className="btn btn-outline-info my-2 mr-1 my-sm-0">
+            Login
+          </Link>
+        </li>
+        <li style={{ listStyle: "none" }}>
+          <Link to="/signup" className="btn btn-info  my-sm-0">
+            Get started
+          </Link>
+        </li>
+      </Fragment>
+    </ErrorBoundary>
   );
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

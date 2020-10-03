@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Dashboard from "../Dashboard";
 import AuthContext from "../../../context/auth/authContext";
+import ErrorBoundary from "../../ErrorBoundary/Error";
 
 const Home = () => {
   const authContext = useContext(AuthContext);
@@ -13,7 +14,9 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Dashboard />
+      <ErrorBoundary>
+        <Dashboard />
+      </ErrorBoundary>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import dateFormatter from "../../../utils/dateFormat";
 
 const AcceptedPayment = ({ transactions }) => {
-  let accepted = true;
+  let accepted = false;
   const displayAccepted = () => {
     return transactions.map((transaction) => {
       if (transaction.accepted) {

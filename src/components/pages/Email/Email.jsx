@@ -1,18 +1,19 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import Spinner from "../../layouts/Spinner/Spinner";
 import API_URL from "../../../config/url.js";
+import { Spinner } from "react-bootstrap";
 
 const Email = (props) => {
   const [confirm, setConfirm] = useState(true);
-  // const API_URL = "https://moneyguard.herokuapp.com/api/v1/email/verify";
   useEffect(() => {
     const { token } = props.match.params;
     async function confirmEmail() {
       await axios.get(`${API_URL}/email/verify/${token}`).then((res) => {
         console.log(res);
         setConfirm(false);
+        setTimeout(function () {
+          window.location.href = "http://localhost:3000/login";
+        }, 3000);
       });
     }
 
@@ -21,7 +22,16 @@ const Email = (props) => {
   return (
     <Fragment>
       {confirm ? (
-        <Spinner />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "400px",
+          }}
+        >
+          <Spinner animation="border" />
+        </div>
       ) : (
         <div
           style={{
@@ -30,9 +40,9 @@ const Email = (props) => {
             justifyContent: "center",
           }}
         >
-          <h1>Your email has been verified. You can go ahead and register</h1>
-          {/* <Redirect to="/signup" /> */}
-          <Link to="/signup">Register</Link>
+          <h1>
+            Your email has been verified. You will be redirected automatically
+          </h1>
         </div>
       )}
     </Fragment>
