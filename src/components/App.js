@@ -14,6 +14,7 @@ import PrivateRoute from "./routing/PrivateRoute";
 import setAuthToken from "../utils/token";
 import "./App.css";
 import Home from "./pages/Home/Home";
+import verifyEmail from "./pages/Email/email-verify";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -31,6 +32,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/confirm/:token" component={Email} />
+            <Route path="/verify-email" component={verifyEmail} />
           </Switch>
         </DisputeState>
         <Footer />
