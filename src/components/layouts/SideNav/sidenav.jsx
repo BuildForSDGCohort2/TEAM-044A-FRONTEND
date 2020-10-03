@@ -1,37 +1,42 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./sidenav.css";
 
 export default function Sidenav(props) {
   return (
-    <main className="container bg-info rounded side--nav">
+    <main className="container side-nav rounded side--nav">
       <h2 className="text-light">MG</h2>
       <nav className="nav side-nav">
         <ul className="list-unstyled">
           <li>
-            <NavLink to="/dashboard" activeClassName="active" exact>
+            <Link to="/dashboard" exact>
               <i className="fas fa-tachometer-alt"></i> Overview
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/dashboard/transactions" activeClassName="active">
+            <Link to="/dashboard/transactions" className="link">
               <i className="fas fa-money-bill-wave"></i> Transactions
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/dashboard/confirm-delivery" activeClassName="active">
+            <Link to="/dashboard/confirm-delivery">
               <i className="fas fa-truck"></i> Confirm Delivery
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/dashboard/disputes" activeClassName="active">
+            <Link to="/dashboard/disputes">
               <i className="fas fa-users"></i> Disputes
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/dashboard/settings" activeClassName="active">
+            <Link to="/dashboard/settings">
               <i className="fas fa-cogs"></i> Settings
-            </NavLink>
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard/wallet">
+              <i className="fas fa-cogs"></i> Wallet
+            </Link>
           </li>
         </ul>
       </nav>

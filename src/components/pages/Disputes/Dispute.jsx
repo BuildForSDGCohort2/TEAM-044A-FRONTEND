@@ -28,7 +28,7 @@ export default function Disputes() {
       if (dispute) {
         accepted = true;
         return (
-          <Fragment>
+          <Fragment key={dispute._id}>
             <tr>
               <th scope="row">{counter()}</th>
               <td className="text-warning">{dispute.disputeStatus}</td>

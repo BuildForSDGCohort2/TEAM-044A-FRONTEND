@@ -53,10 +53,11 @@ const DisputeState = (props) => {
   const loadDisputes = async () => {
     try {
       const res = await axios.get(`${API_URL}/disputes`);
+      console.log(res.data.data[0]);
 
       dispatch({
         type: LOAD_DISPUTES,
-        payload: res.data.data,
+        payload: res.data.data[0],
       });
     } catch (error) {
       dispatch({

@@ -2,17 +2,17 @@ import React, { Fragment } from "react";
 import dateFormatter from "../../../utils/dateFormat";
 
 const MyPayment = ({ transactions }) => {
-  const returnAmount = () => {
-    let sum = 0;
-    transactions.forEach((transaction) => {
-      if (transaction.tag === "bft") {
-        sum += transaction.amount / 100;
-      }
-    });
-    return sum;
-  };
+  // const returnAmount = () => {
+  //   let sum = 0;
+  //   transactions.forEach((transaction) => {
+  //     if (transaction.tag === "bft") {
+  //       sum += transaction.amount / 100;
+  //     }
+  //   });
+  //   return sum;
+  // };
 
-  let accepted = true;
+  let accepted = false;
   const displayPayments = () => {
     return transactions.map((transaction) => {
       if (transaction.tag === "bft") {
@@ -49,7 +49,7 @@ const MyPayment = ({ transactions }) => {
         <div className="container">
           <div className="d-flex justify-content-between p-2">
             <h5 className="font-weight-bold">My transaction</h5>
-            <h5>Total: &#x20A6;{returnAmount()}</h5>
+            {/* <h5>Total: &#x20A6;{returnAmount()}</h5> */}
           </div>
           <div>
             <div>

@@ -7,7 +7,7 @@ const DisputeForm = () => {
   const transactionContext = useContext(TransactionContext);
   const { loadTransactions, transactions, loading } = transactionContext;
   const disputeContext = useContext(DisputeContext);
-  const { addDispute, disputes } = disputeContext;
+  const { addDispute } = disputeContext;
   const [dispute, setDispute] = useState({
     decision: "",
     disputeStatus: "Open",

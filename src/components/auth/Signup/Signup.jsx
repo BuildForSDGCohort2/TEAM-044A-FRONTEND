@@ -47,7 +47,7 @@ const Signup = (props) => {
   useEffect(() => {
     if (isAuthenticated) {
       successMessage();
-      props.history.push("/dashboard");
+      props.history.push("/verify");
     }
 
     if (error) {
