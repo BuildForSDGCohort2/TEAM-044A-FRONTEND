@@ -16,6 +16,8 @@ import {
 } from "../types";
 import API_URL from "../../config/url";
 
+console.log(API_URL);
+
 dotenv.config();
 
 const AuthState = (props) => {
