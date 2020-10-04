@@ -2,4 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export default process.env.API_URL || "http://localhost:4000/api/v1";
+module.exports =
+  process.env.NODE_ENV === "production"
+    ? "https://moneyguard.herokuapp/api/v1"
+    : "http://localhost:4000/api/v1";
