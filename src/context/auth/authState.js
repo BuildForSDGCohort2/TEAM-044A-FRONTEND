@@ -18,6 +18,8 @@ import API_URL from "../../config/url";
 
 dotenv.config();
 
+console.log(process.env.API_URL);
+
 const AuthState = (props) => {
   const initialState = {
     token: localStorage.getItem("token"),
