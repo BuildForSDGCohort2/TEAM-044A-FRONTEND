@@ -18,7 +18,7 @@ import API_URL from "../../config/url";
 
 dotenv.config();
 
-console.log(process.env.API_URL);
+console.log(process.env.NODE_ENV);
 
 const AuthState = (props) => {
   const initialState = {

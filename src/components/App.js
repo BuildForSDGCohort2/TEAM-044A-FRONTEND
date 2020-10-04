@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./layouts/Navbar/navbar";
 import LandingPage from "./pages/Landing/landing";
@@ -16,7 +16,6 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import ErrorBoundary from "./ErrorBoundary/Error";
 import VerifyEmail from "./pages/Email/VerifyEmail";
-import manageSession from "../utils/session";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
