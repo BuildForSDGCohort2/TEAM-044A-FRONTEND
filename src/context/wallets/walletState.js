@@ -43,9 +43,10 @@ const WalletState = (props) => {
     }
   };
 
-  const depostitMoney = async (data) => {
+  const depositMoney = async (data) => {
     try {
       const res = await axios.post(`${API_URL}/wallet/deposit`, data, config);
+      console.log(res.data.data);
       dispatch({ type: DEPOSIT_MONEY, payload: res.data.data });
       loadBalance();
     } catch (error) {
@@ -107,7 +108,7 @@ const WalletState = (props) => {
         loadBalance,
         withdrawMoney,
         transferMoney,
-        depostitMoney,
+        depositMoney,
         transactionHistory,
       }}
     >

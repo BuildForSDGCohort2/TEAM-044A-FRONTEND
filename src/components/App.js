@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./layouts/Navbar/navbar";
 import LandingPage from "./pages/Landing/landing";
@@ -16,12 +16,20 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import ErrorBoundary from "./ErrorBoundary/Error";
 import VerifyEmail from "./pages/Email/VerifyEmail";
+import manageSession from "../utils/session";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
 const App = () => {
+  // useEffect(() => {
+  //   // manageSession();
+  //   // window.onunload = function () {
+  //   //   localStorage.clear();
+  //   // };
+  //   //eslint-disable-next-line
+  // }, []);
   return (
     <AuthState>
       <TransactionState>

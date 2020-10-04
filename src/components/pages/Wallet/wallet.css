@@ -7,6 +7,19 @@
   letter-spacing: 1px;
 }
 
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 50%; */
+  margin-top: 30px;
+}
+
+.input input {
+  color: #000;
+}
+
 .wallet hr {
   margin-top: 2em;
 }

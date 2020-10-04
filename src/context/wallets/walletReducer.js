@@ -11,6 +11,7 @@ export default (state, action) => {
     case DEPOSIT_MONEY:
       return {
         balance: action.payload,
+        // transactions: [...state.transactions, action.payload],
         error: null,
       };
     case WITHDRAW_MONEY: {

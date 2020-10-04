@@ -13,7 +13,10 @@ const Email = (props) => {
         console.log(res.data);
         setConfirm(false);
         setTimeout(function () {
-          window.location.href = "http://localhost:3000/login";
+          window.location.href =
+            process.env.HOME_URL === "production"
+              ? "http://money-guard.herokuapp.com/login"
+              : "http://localhost:3000/login";
         }, 3000);
       });
     }
