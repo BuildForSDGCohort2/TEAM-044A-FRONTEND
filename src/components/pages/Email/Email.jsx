@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
+import dotenv from "dotenv";
 import API_URL from "../../../config/url.js";
 import { Spinner } from "react-bootstrap";
+
+dotenv.config();
 
 const Email = (props) => {
   const [confirm, setConfirm] = useState(true);
