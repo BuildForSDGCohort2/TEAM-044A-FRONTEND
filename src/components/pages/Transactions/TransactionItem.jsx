@@ -6,7 +6,7 @@ import AuthContext from "../../../context/auth/authContext";
 import { Card, Button } from "react-bootstrap";
 import ErrorBoundary from "../../ErrorBoundary/Error";
 
-const TransactionItem = (props) => {
+const TransactionItem = ({ transaction }) => {
   const authContext = useContext(AuthContext);
   const { user } = authContext;
   const {
@@ -17,7 +17,7 @@ const TransactionItem = (props) => {
     reference,
     email,
     initiator,
-  } = props.transaction;
+  } = transaction;
 
   // paystackkk
   const config = {
@@ -28,7 +28,7 @@ const TransactionItem = (props) => {
   };
 
   const transactionRequests = async (link) => {
-    await axios.patch(`${API_URL}/transactions/${link}/${reference}`);
+    await axios.patch(`/api/v1/transactions/${link}/${reference}`);
   };
 
   const recipientStatus = () => {

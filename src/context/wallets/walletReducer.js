@@ -4,14 +4,16 @@ import {
   TRANSFER_MONEY,
   LOAD_BALANCE,
   WALLET_HISTORY,
+  CLEAR_FIELDS,
 } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
+    // CHECK HERE!!====
     case DEPOSIT_MONEY:
       return {
-        balance: action.payload,
-        // transactions: [...state.transactions, action.payload],
+        balance: action.payload[0].deposit.amount,
+        transactions: [action.payload, ...state.transactions],
         error: null,
       };
     case WITHDRAW_MONEY: {
@@ -42,6 +44,13 @@ export default (state, action) => {
         transactions: action.payload,
         loading: false,
         error: null,
+      };
+    }
+
+    case CLEAR_FIELDS: {
+      return {
+        ...state,
+        field: null,
       };
     }
 

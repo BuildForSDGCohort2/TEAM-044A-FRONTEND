@@ -17,7 +17,7 @@ const Email = (props) => {
         setConfirm(false);
         setTimeout(function () {
           window.location.href =
-            process.env.HOME_URL === "production"
+            process.env.NODE_ENV === "production"
               ? "http://money-guard.herokuapp.com/login"
               : "http://localhost:3000/login";
         }, 3000);

@@ -8,7 +8,6 @@ import {
   LOAD_DISPUTES,
   TRANSACTION_ERROR,
 } from "../types";
-import API_URL from "../../config/url";
 
 const DisputeState = (props) => {
   const initialState = {
@@ -28,7 +27,7 @@ const DisputeState = (props) => {
 
   const addDispute = async (formData) => {
     try {
-      const res = await axios.post(`${API_URL}/disputes`, formData, config);
+      const res = await axios.post(`api/v1/disputes`, formData, config);
       dispatch({ type: ADD_DISPUTE, payload: res.data });
     } catch (error) {
       dispatch({
@@ -40,7 +39,7 @@ const DisputeState = (props) => {
 
   const getDisputes = async (ref) => {
     try {
-      const res = await axios.get(`${API_URL}/disputes/${ref}`);
+      const res = await axios.get(`api/v1/disputes/${ref}`);
       dispatch({ type: GET_DISPUTE, payload: res.data });
     } catch (error) {
       dispatch({
@@ -52,7 +51,7 @@ const DisputeState = (props) => {
 
   const loadDisputes = async () => {
     try {
-      const res = await axios.get(`${API_URL}/disputes`);
+      const res = await axios.get(`/api/v1/disputes`);
       console.log(res.data.data[0]);
 
       dispatch({

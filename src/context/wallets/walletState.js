@@ -6,11 +6,11 @@ import {
   LOAD_BALANCE,
   WALLET_ERROR,
   WALLET_HISTORY,
+  CLEAR_FIELDS,
 } from "../types";
 import WalletContext from "./walletContext";
 import walletReducer from "./walletReducer";
 import axios from "axios";
-import API_URL from "../../config/url";
 
 const WalletState = (props) => {
   const initialState = {
@@ -18,6 +18,7 @@ const WalletState = (props) => {
     loading: true,
     error: null,
     transactions: [],
+    field: null,
   };
 
   const config = {
@@ -29,7 +30,7 @@ const WalletState = (props) => {
 
   const loadBalance = async () => {
     try {
-      const res = await axios.get(`${API_URL}/wallet/history`);
+      const res = await axios.get(`/api/v1/wallet/history`);
 
       dispatch({
         type: LOAD_BALANCE,
@@ -45,8 +46,8 @@ const WalletState = (props) => {
 
   const depositMoney = async (data) => {
     try {
-      const res = await axios.post(`${API_URL}/wallet/deposit`, data, config);
-      console.log(res.data.data);
+      const res = await axios.post(`/api/v1/wallet/deposit`, data, config);
+
       dispatch({ type: DEPOSIT_MONEY, payload: res.data.data });
       loadBalance();
     } catch (error) {
@@ -59,7 +60,7 @@ const WalletState = (props) => {
 
   const withdrawMoney = async (data) => {
     try {
-      const res = await axios.post(`${API_URL}/wallet/withdraw`, data, config);
+      const res = await axios.post(`/api/v1/wallet/withdraw`, data, config);
       dispatch({ type: WITHDRAW_MONEY, payload: res.data.data });
       loadBalance();
     } catch (error) {
@@ -72,7 +73,7 @@ const WalletState = (props) => {
 
   const transferMoney = async (data) => {
     try {
-      const res = await axios.post(`${API_URL}/wallet/withdraw`, data, config);
+      const res = await axios.post(`/api/v1/wallet/transfer`, data, config);
       dispatch({ type: TRANSFER_MONEY, payload: res.data.data });
       loadBalance();
     } catch (error) {
@@ -85,7 +86,7 @@ const WalletState = (props) => {
 
   const transactionHistory = async () => {
     try {
-      const res = await axios.get(`${API_URL}/wallet/history`);
+      const res = await axios.get(`/api/v1/wallet/history`);
       dispatch({
         type: WALLET_HISTORY,
         payload: res.data.data[0].walletTransactions,
@@ -98,6 +99,8 @@ const WalletState = (props) => {
     }
   };
 
+  const clearFields = () => dispatch({ type: CLEAR_FIELDS });
+
   return (
     <WalletContext.Provider
       value={{
@@ -105,11 +108,13 @@ const WalletState = (props) => {
         loading: state.loading,
         error: state.error,
         transactions: state.transactions,
+        field: state.field,
         loadBalance,
         withdrawMoney,
         transferMoney,
         depositMoney,
         transactionHistory,
+        clearFields,
       }}
     >
       {props.children}

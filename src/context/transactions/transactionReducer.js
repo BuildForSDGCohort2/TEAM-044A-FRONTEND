@@ -1,4 +1,9 @@
-import { GET_TRANSACTION, LOAD_TRANSACTIONS, CLEAR_FIELDS } from "../types";
+import {
+  GET_TRANSACTION,
+  LOAD_TRANSACTIONS,
+  CLEAR_FIELDS,
+  TRANSACTION_ERROR,
+} from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -18,6 +23,11 @@ export default (state, action) => {
       return {
         ...state,
         current: null,
+      };
+    case TRANSACTION_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

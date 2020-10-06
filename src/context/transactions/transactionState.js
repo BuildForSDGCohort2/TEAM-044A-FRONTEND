@@ -10,7 +10,6 @@ import {
   TRANSACTION_ERROR,
   CLEAR_FIELDS,
 } from "../types";
-import API_URL from "../../config/url";
 
 const TransactionState = (props) => {
   const initialState = {
@@ -30,7 +29,7 @@ const TransactionState = (props) => {
 
   const addTransaction = async (formData) => {
     try {
-      const res = await axios.post(`${API_URL}/transactions`, formData, config);
+      const res = await axios.post(`/api/v1/transactions/`, formData, config);
       dispatch({ type: ADD_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -42,7 +41,7 @@ const TransactionState = (props) => {
 
   const getTransaction = async (ref) => {
     try {
-      const res = await axios.get(`${API_URL}/transactions/${ref}`);
+      const res = await axios.get(`/api/v1/transactions/${ref}`);
       dispatch({ type: GET_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -54,13 +53,14 @@ const TransactionState = (props) => {
 
   const loadTransactions = async () => {
     try {
-      const res = await axios.get(`${API_URL}/transactions`);
+      const res = await axios.get(`/api/v1/transactions/`);
 
       dispatch({
         type: LOAD_TRANSACTIONS,
-        payload: res.data.data[0].transactions,
+        payload: res.data.data,
       });
     } catch (error) {
+      console.log(error.response.data.errors);
       dispatch({
         type: TRANSACTION_ERROR,
         payload: error.response.data.errors[0].error,

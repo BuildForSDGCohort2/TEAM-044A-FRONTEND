@@ -17,8 +17,10 @@ export default function MainDashboard() {
 
     //eslint-disable-next-line
   }, []);
+
   const authContext = useContext(AuthContext);
   const { user } = authContext;
+
   return (
     <Fragment>
       <section className="container">

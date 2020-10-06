@@ -10,7 +10,7 @@ import ConfirmDelivery from "../Delivery/Delivery";
 import TransactionItem from "../Transactions/TransactionItem";
 import ErrorBoundary from "../../ErrorBoundary/Error";
 import DisputeForm from "../Disputes/DisputeForm";
-import Wallets from "../Wallet";
+import Wallet from "../Wallet/Wallet";
 
 export default function Dashboard() {
   return (
@@ -46,7 +46,7 @@ export default function Dashboard() {
               path="/transaction/:reference"
               component={TransactionItem}
             />
-            <Route exact path="/dashboard/wallet" component={Wallets} />
+            <Route exact path="/dashboard/wallet" component={Wallet} />
           </Switch>
         </div>
       </div>

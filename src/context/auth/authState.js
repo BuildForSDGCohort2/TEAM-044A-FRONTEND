@@ -14,11 +14,8 @@ import {
   CLEAR_ERRORS,
   AUTH_ERROR,
 } from "../types";
-import API_URL from "../../config/url";
 
 dotenv.config();
-
-console.log(process.env.NODE_ENV);
 
 const AuthState = (props) => {
   const initialState = {
@@ -38,7 +35,7 @@ const AuthState = (props) => {
     }
 
     try {
-      const res = await axios.get(`${API_URL}/auth`);
+      const res = await axios.get(`api/v1/auth`);
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (error) {
       dispatch({ type: AUTH_ERROR });
@@ -54,7 +51,7 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post(`${API_URL}/users`, formData, config);
+      const res = await axios.post(`api/v1/users`, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data.data[0],
@@ -76,7 +73,7 @@ const AuthState = (props) => {
       },
     };
     try {
-      const res = await axios.post(`${API_URL}/auth`, formData, config);
+      const res = await axios.post(`api/v1/auth/`, formData, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,

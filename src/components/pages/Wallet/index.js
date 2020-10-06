@@ -22,6 +22,11 @@ const Wallets = () => {
   return (
     <div className="walletContainer">
       <div className="walletFirstchild">
+        {/* {transactions !== null
+          ? transactions.map((transaction) => (
+              <Wallet transactions={transaction} />
+            ))
+          : null} */}
         <Wallet transactions={transactions} balance={balance} />
         {/* <Payment /> */}
       </div>

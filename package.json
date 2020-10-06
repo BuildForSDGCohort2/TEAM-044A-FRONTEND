@@ -20,7 +20,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-toastify": "6.0.8",
-    "serve": "11.3.2"
+    "serve": "11.3.2",
+    "tailwindcss": "1.8.10"
   },
   "scripts": {
     "dev": "react-scripts start",
@@ -44,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://moneyguard.herokuapp.com"
 }

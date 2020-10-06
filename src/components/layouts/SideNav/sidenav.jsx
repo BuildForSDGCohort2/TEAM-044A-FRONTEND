@@ -9,7 +9,7 @@ export default function Sidenav(props) {
       <nav className="nav side-nav">
         <ul className="list-unstyled">
           <li>
-            <Link to="/dashboard" exact>
+            <Link to="/dashboard">
               <i className="fas fa-tachometer-alt"></i> Overview
             </Link>
           </li>
