@@ -12,6 +12,11 @@ import WalletContext from "./walletContext";
 import walletReducer from "./walletReducer";
 import axios from "axios";
 
+const API_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://moneyguard.herokuapp.com"
+    : "http://localhost:3000";
+
 const WalletState = (props) => {
   const initialState = {
     balance: 0,
@@ -30,7 +35,7 @@ const WalletState = (props) => {
 
   const loadBalance = async () => {
     try {
-      const res = await axios.get(`/api/v1/wallet/history`);
+      const res = await axios.get(`${API_URL}/api/v1/wallet/history`);
 
       dispatch({
         type: LOAD_BALANCE,
@@ -46,7 +51,11 @@ const WalletState = (props) => {
 
   const depositMoney = async (data) => {
     try {
-      const res = await axios.post(`/api/v1/wallet/deposit`, data, config);
+      const res = await axios.post(
+        `${API_URL}/api/v1/wallet/deposit`,
+        data,
+        config
+      );
 
       dispatch({ type: DEPOSIT_MONEY, payload: res.data.data });
       loadBalance();
@@ -60,7 +69,11 @@ const WalletState = (props) => {
 
   const withdrawMoney = async (data) => {
     try {
-      const res = await axios.post(`/api/v1/wallet/withdraw`, data, config);
+      const res = await axios.post(
+        `${API_URL}/api/v1/wallet/withdraw`,
+        data,
+        config
+      );
       dispatch({ type: WITHDRAW_MONEY, payload: res.data.data });
       loadBalance();
     } catch (error) {
@@ -73,7 +86,11 @@ const WalletState = (props) => {
 
   const transferMoney = async (data) => {
     try {
-      const res = await axios.post(`/api/v1/wallet/transfer`, data, config);
+      const res = await axios.post(
+        `${API_URL}/api/v1/wallet/transfer`,
+        data,
+        config
+      );
       dispatch({ type: TRANSFER_MONEY, payload: res.data.data });
       loadBalance();
     } catch (error) {
@@ -86,7 +103,7 @@ const WalletState = (props) => {
 
   const transactionHistory = async () => {
     try {
-      const res = await axios.get(`/api/v1/wallet/history`);
+      const res = await axios.get(`${API_URL}/api/v1/wallet/history`);
       dispatch({
         type: WALLET_HISTORY,
         payload: res.data.data[0].walletTransactions,

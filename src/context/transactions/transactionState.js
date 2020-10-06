@@ -27,9 +27,18 @@ const TransactionState = (props) => {
     },
   };
 
+  const API_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://moneyguard.herokuapp.com"
+      : "http://localhost:3000";
+
   const addTransaction = async (formData) => {
     try {
-      const res = await axios.post(`/api/v1/transactions/`, formData, config);
+      const res = await axios.post(
+        `${API_URL}/api/v1/transactions/`,
+        formData,
+        config
+      );
       dispatch({ type: ADD_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -41,7 +50,7 @@ const TransactionState = (props) => {
 
   const getTransaction = async (ref) => {
     try {
-      const res = await axios.get(`/api/v1/transactions/${ref}`);
+      const res = await axios.get(`${API_URL}/api/v1/transactions/${ref}`);
       dispatch({ type: GET_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -53,7 +62,7 @@ const TransactionState = (props) => {
 
   const loadTransactions = async () => {
     try {
-      const res = await axios.get(`/api/v1/transactions/`);
+      const res = await axios.get(`${API_URL}/api/v1/transactions/`);
 
       dispatch({
         type: LOAD_TRANSACTIONS,

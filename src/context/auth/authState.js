@@ -27,6 +27,10 @@ const AuthState = (props) => {
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
+  const API_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://moneyguard.herokuapp.com"
+      : "http://localhost:3000";
 
   // LOAD USER
   const loadUser = async () => {
@@ -35,7 +39,7 @@ const AuthState = (props) => {
     }
 
     try {
-      const res = await axios.get(`api/v1/auth`);
+      const res = await axios.get(`${API_URL}/api/v1/auth`);
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (error) {
       dispatch({ type: AUTH_ERROR });
@@ -51,7 +55,7 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post(`api/v1/users`, formData, config);
+      const res = await axios.post(`${API_URL}/api/v1/users`, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data.data[0],
@@ -73,7 +77,7 @@ const AuthState = (props) => {
       },
     };
     try {
-      const res = await axios.post(`api/v1/auth/`, formData, config);
+      const res = await axios.post(`${API_URL}/api/v1/auth/`, formData, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
