@@ -2,13 +2,13 @@ import { ADD_DISPUTE, LOAD_DISPUTES, GET_DISPUTE } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
-    case ADD_DISPUTE: {
+    case ADD_DISPUTE:
       return {
         ...state,
         disputes: [action.payload, ...state.disputes],
         loading: null,
       };
-    }
+
     case GET_DISPUTE:
       return {
         ...state,

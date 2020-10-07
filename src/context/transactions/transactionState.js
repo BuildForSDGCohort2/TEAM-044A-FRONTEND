@@ -10,6 +10,7 @@ import {
   TRANSACTION_ERROR,
   CLEAR_FIELDS,
 } from "../types";
+import { TRANSACTION_ROUTE, ONLINE_API } from "../../utils/routes";
 
 const TransactionState = (props) => {
   const initialState = {
@@ -27,15 +28,10 @@ const TransactionState = (props) => {
     },
   };
 
-  const API_URL =
-    process.env.NODE_ENV === "production"
-      ? "https://moneyguard.herokuapp.com"
-      : "http://localhost:3000";
-
   const addTransaction = async (formData) => {
     try {
       const res = await axios.post(
-        `${API_URL}/api/v1/transactions/`,
+        `${ONLINE_API}${TRANSACTION_ROUTE}/`,
         formData,
         config
       );
@@ -50,7 +46,7 @@ const TransactionState = (props) => {
 
   const getTransaction = async (ref) => {
     try {
-      const res = await axios.get(`${API_URL}/api/v1/transactions/${ref}`);
+      const res = await axios.get(`${ONLINE_API}${TRANSACTION_ROUTE}/${ref}`);
       dispatch({ type: GET_TRANSACTION, payload: res.data });
     } catch (error) {
       dispatch({
@@ -62,7 +58,7 @@ const TransactionState = (props) => {
 
   const loadTransactions = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/v1/transactions/`);
+      const res = await axios.get(`${ONLINE_API}${TRANSACTION_ROUTE}/`);
 
       dispatch({
         type: LOAD_TRANSACTIONS,
@@ -77,7 +73,8 @@ const TransactionState = (props) => {
     }
   };
 
-  const clearError = () => dispatch({ type: CLEAR_ERRORS });
+  const clearError = () =>
+    setTimeout(() => dispatch({ type: CLEAR_ERRORS }), 2000);
   const clearFields = () => dispatch({ type: CLEAR_FIELDS });
 
   return (

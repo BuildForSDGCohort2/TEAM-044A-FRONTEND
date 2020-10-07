@@ -11,6 +11,11 @@ const Navbar = () => {
   const authLinks = (
     <ErrorBoundary>
       <Fragment>
+        <li style={{ listStyle: "none", marginRight: "2px" }}>
+          <Link className="btn btn-info my-sm-0" to="/dashboard">
+            Dashboard
+          </Link>
+        </li>
         <li style={{ listStyle: "none" }}>
           <button onClick={onLogout} className="btn btn-info  my-sm-0">
             <i className="fas fa-sign-out-alt" />

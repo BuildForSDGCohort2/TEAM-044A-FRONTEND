@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import "./modal.css";
 
-const Modal = ({ handleClose, handleCloseTransfer, show, send, children }) => {
+const Modal = ({ handleClose, show, send, children }) => {
   const showHideClassName =
     show || send ? "modal display-block" : "modal display-none";
 
@@ -10,19 +11,6 @@ const Modal = ({ handleClose, handleCloseTransfer, show, send, children }) => {
       <section className="modal-main">
         {children}
 
-        {/* {send ? (
-          <Fragment>
-            <button className="close" onClick={handleCloseTransfer}>
-              Close
-            </button>
-          </Fragment>
-        ) : (
-          <Fragment>
-            <button className="close" onClick={handleClose}>
-              Close
-            </button>
-          </Fragment>
-        )} */}
         <button className="close" onClick={handleClose}>
           Close
         </button>
@@ -31,4 +19,8 @@ const Modal = ({ handleClose, handleCloseTransfer, show, send, children }) => {
   );
 };
 
+Modal.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.elementType])
+    .isRequired,
+};
 export default Modal;

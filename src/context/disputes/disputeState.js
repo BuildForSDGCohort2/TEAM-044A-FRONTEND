@@ -8,6 +8,7 @@ import {
   LOAD_DISPUTES,
   TRANSACTION_ERROR,
 } from "../types";
+import { DISPUTE_ROUTE, ONLINE_API } from "../../utils/routes";
 
 const DisputeState = (props) => {
   const initialState = {
@@ -25,14 +26,10 @@ const DisputeState = (props) => {
     },
   };
 
-  const API_URL =
-    process.env.NODE_ENV === "production"
-      ? "https://moneyguard.herokuapp.com"
-      : "http://localhost:3000";
   const addDispute = async (formData) => {
     try {
       const res = await axios.post(
-        `${API_URL}/api/v1/disputes`,
+        `${ONLINE_API}${DISPUTE_ROUTE}`,
         formData,
         config
       );
@@ -47,7 +44,7 @@ const DisputeState = (props) => {
 
   const getDisputes = async (ref) => {
     try {
-      const res = await axios.get(`${API_URL}/api/v1/disputes/${ref}`);
+      const res = await axios.get(`${ONLINE_API}${DISPUTE_ROUTE}/${ref}`);
       dispatch({ type: GET_DISPUTE, payload: res.data });
     } catch (error) {
       dispatch({
@@ -59,7 +56,7 @@ const DisputeState = (props) => {
 
   const loadDisputes = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/v1/disputes`);
+      const res = await axios.get(`${ONLINE_API}${DISPUTE_ROUTE}`);
       console.log(res.data.data[0]);
 
       dispatch({

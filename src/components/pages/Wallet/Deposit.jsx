@@ -2,24 +2,35 @@ import React, { useState, useContext, useEffect } from "react";
 import Modal from "../../Modal/Modal";
 import Input from "../../Input/Input";
 import WalletContext from "../../../context/wallets/walletContext";
+import { errorMessage } from "../../../utils/reactToast";
 
 const DepositComponent = () => {
   const walletContext = useContext(WalletContext);
-  const { depositMoney, clearFields, field } = walletContext;
+  const {
+    depositMoney,
+    clearFields,
+    field,
+    error,
+    clearErrors,
+  } = walletContext;
 
   useEffect(() => {
     setText({
       amount: 0,
       operationType: "deposit",
     });
-  }, [walletContext, field]);
+
+    if (error) {
+      errorMessage(error);
+    }
+  }, [walletContext, field, clearErrors, error]);
 
   const [text, setText] = useState({
     amount: 0,
     operationType: "deposit",
   });
 
-  const { amount, operationType } = text;
+  const { amount } = text;
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -31,8 +42,11 @@ const DepositComponent = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-
-    depositMoney(text);
+    if (!amount) {
+      errorMessage("Please enter an amount.");
+    } else {
+      depositMoney(text);
+    }
 
     clearAll();
   };
@@ -49,13 +63,6 @@ const DepositComponent = () => {
               value={amount}
               onChange={onChange}
             />
-            <select
-              value={operationType}
-              onChange={onChange}
-              name="operationType"
-            >
-              <option value="deposit">Deposit</option>
-            </select>
             <button onClick={handleClose}>Deposit</button>
           </div>
         </form>

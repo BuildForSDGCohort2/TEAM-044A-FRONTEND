@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import dateFormatter from "../../../utils/dateFormat";
 
 const AcceptedPayment = ({ transactions }) => {
-  let accepted = false;
+  let accepted = true;
   const displayAccepted = () => {
     return transactions.map((transaction) => {
       if (transaction.accepted) {
@@ -52,4 +53,7 @@ const AcceptedPayment = ({ transactions }) => {
   );
 };
 
+AcceptedPayment.propTypes = {
+  transactions: PropTypes.array.isRequired,
+};
 export default AcceptedPayment;

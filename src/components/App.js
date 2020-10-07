@@ -4,7 +4,6 @@ import Navbar from "./layouts/Navbar/navbar";
 import LandingPage from "./pages/Landing/landing";
 import Login from "./auth/Login/Login";
 import Signup from "./auth/Signup/Signup";
-import Footer from "./layouts/Footer/footer";
 import AuthState from "../context/auth/authState";
 import TransactionState from "../context/transactions/transactionState";
 import DisputeState from "../context/disputes/disputeState";
@@ -22,13 +21,6 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  // useEffect(() => {
-  //   // manageSession();
-  //   // window.onunload = function () {
-  //   //   localStorage.clear();
-  //   // };
-  //   //eslint-disable-next-line
-  // }, []);
   return (
     <AuthState>
       <TransactionState>
@@ -46,7 +38,7 @@ const App = () => {
               <Route exact path="/verify" component={VerifyEmail} />
             </Switch>
           </DisputeState>
-          <Footer />
+          {/* <Footer /> */}
         </WalletState>
       </TransactionState>
     </AuthState>

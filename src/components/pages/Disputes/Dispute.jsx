@@ -4,7 +4,7 @@ import { Spinner } from "react-bootstrap";
 import DisputeContext from "../../../context/disputes/disputeContext";
 import dateFormatter from "../../../utils/dateFormat";
 
-export default function Disputes() {
+const Dispute = () => {
   const disputeContext = useContext(DisputeContext);
   const { loadDisputes, disputes, loading } = disputeContext;
 
@@ -91,4 +91,6 @@ export default function Disputes() {
       </div>
     </section>
   );
-}
+};
+
+export default Dispute;

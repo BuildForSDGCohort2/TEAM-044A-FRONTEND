@@ -6,6 +6,7 @@ import DisputeContext from "../../../context/disputes/disputeContext";
 const DisputeForm = () => {
   const transactionContext = useContext(TransactionContext);
   const { loadTransactions, transactions, loading } = transactionContext;
+  console.log(transactions);
   const disputeContext = useContext(DisputeContext);
   const { addDispute } = disputeContext;
   const [dispute, setDispute] = useState({
@@ -56,15 +57,11 @@ const DisputeForm = () => {
             onChange={onChange}
           >
             {transactions !== null && !loading
-              ? transactions.map((transaction) => {
-                  return (
-                    <Fragment>
-                      <option key={transaction._id} value={transaction._id}>
-                        {transaction.transactionTitle}
-                      </option>
-                    </Fragment>
-                  );
-                })
+              ? transactions.map((transaction) => (
+                  <option key={transaction._id} value={transaction._id}>
+                    {transaction.firstName}
+                  </option>
+                ))
               : null}
           </Form.Control>
         </Form.Group>
@@ -77,9 +74,7 @@ const DisputeForm = () => {
             value={disputeStatus}
             onChange={onChange}
           >
-            <option selected value="Open">
-              Open
-            </option>
+            <option value="Open">Open</option>
           </Form.Control>
         </Form.Group>
         <Button variant="primary" type="submit">

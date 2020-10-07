@@ -27,6 +27,7 @@ export default (state, action) => {
         ...action.payload,
         isAuthenticated: true,
         loading: false,
+        error: null,
       };
     case REGISTER_FAIL:
     case LOGIN_FAIL:

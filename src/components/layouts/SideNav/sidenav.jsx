@@ -2,17 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./sidenav.css";
 
-export default function Sidenav(props) {
+export default function Sidenav() {
   return (
-    <main className="container side-nav rounded side--nav">
-      <h2 className="text-light">MG</h2>
+    <main className="side-nav rounded side--nav">
+      <div className="brand">
+        <h2 className="text-light">MG</h2>
+      </div>
       <nav className="nav side-nav">
         <ul className="list-unstyled">
-          <li>
+          <div className="nav-container">
             <Link to="/dashboard">
               <i className="fas fa-tachometer-alt"></i> Overview
             </Link>
-          </li>
+          </div>
           <li>
             <Link to="/dashboard/transactions" className="link">
               <i className="fas fa-money-bill-wave"></i> Transactions
@@ -26,11 +28,6 @@ export default function Sidenav(props) {
           <li>
             <Link to="/dashboard/disputes">
               <i className="fas fa-users"></i> Disputes
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/settings">
-              <i className="fas fa-cogs"></i> Settings
             </Link>
           </li>
           <li>

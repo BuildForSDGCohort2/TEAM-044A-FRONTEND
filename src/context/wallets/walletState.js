@@ -7,15 +7,12 @@ import {
   WALLET_ERROR,
   WALLET_HISTORY,
   CLEAR_FIELDS,
+  CLEAR_ERRORS,
 } from "../types";
 import WalletContext from "./walletContext";
 import walletReducer from "./walletReducer";
 import axios from "axios";
-
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://moneyguard.herokuapp.com"
-    : "http://localhost:3000";
+import { WALLET_ROUTE, ONLINE_API } from "../../utils/routes";
 
 const WalletState = (props) => {
   const initialState = {
@@ -35,7 +32,7 @@ const WalletState = (props) => {
 
   const loadBalance = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/v1/wallet/history`);
+      const res = await axios.get(`${ONLINE_API}${WALLET_ROUTE}/history`);
 
       dispatch({
         type: LOAD_BALANCE,
@@ -52,7 +49,7 @@ const WalletState = (props) => {
   const depositMoney = async (data) => {
     try {
       const res = await axios.post(
-        `${API_URL}/api/v1/wallet/deposit`,
+        `${ONLINE_API}${WALLET_ROUTE}/deposit`,
         data,
         config
       );
@@ -70,7 +67,7 @@ const WalletState = (props) => {
   const withdrawMoney = async (data) => {
     try {
       const res = await axios.post(
-        `${API_URL}/api/v1/wallet/withdraw`,
+        `${ONLINE_API}${WALLET_ROUTE}/withdraw`,
         data,
         config
       );
@@ -87,7 +84,7 @@ const WalletState = (props) => {
   const transferMoney = async (data) => {
     try {
       const res = await axios.post(
-        `${API_URL}/api/v1/wallet/transfer`,
+        `${ONLINE_API}${WALLET_ROUTE}/transfer`,
         data,
         config
       );
@@ -103,7 +100,7 @@ const WalletState = (props) => {
 
   const transactionHistory = async () => {
     try {
-      const res = await axios.get(`${API_URL}/api/v1/wallet/history`);
+      const res = await axios.get(`${ONLINE_API}${WALLET_ROUTE}/history`);
       dispatch({
         type: WALLET_HISTORY,
         payload: res.data.data[0].walletTransactions,
@@ -117,6 +114,8 @@ const WalletState = (props) => {
   };
 
   const clearFields = () => dispatch({ type: CLEAR_FIELDS });
+  const clearErrors = () =>
+    setTimeout(() => dispatch({ type: CLEAR_ERRORS }), 3000);
 
   return (
     <WalletContext.Provider
@@ -132,6 +131,7 @@ const WalletState = (props) => {
         depositMoney,
         transactionHistory,
         clearFields,
+        clearErrors,
       }}
     >
       {props.children}

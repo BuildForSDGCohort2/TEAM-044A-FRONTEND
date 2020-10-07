@@ -1,14 +1,19 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, useEffect } from "react";
 import { PaystackButton } from "react-paystack";
 import axios from "axios";
-import API_URL from "../../../config/url";
+
 import AuthContext from "../../../context/auth/authContext";
+import TransactionContext from "../../../context/transactions/transactionContext";
 import { Card, Button } from "react-bootstrap";
 import ErrorBoundary from "../../ErrorBoundary/Error";
+import { errorMessage } from "../../../utils/reactToast";
+import { ONLINE_API, TRANSACTION_ROUTE } from "../../../utils/routes";
 
 const TransactionItem = ({ transaction }) => {
   const authContext = useContext(AuthContext);
+  const transactionContext = useContext(TransactionContext);
   const { user } = authContext;
+  const { error, clearError } = transactionContext;
   const {
     transactionTitle,
     transactionDesc,
@@ -19,6 +24,12 @@ const TransactionItem = ({ transaction }) => {
     initiator,
   } = transaction;
 
+  useEffect(() => {
+    if (error) {
+      errorMessage(error);
+      clearError();
+    }
+  }, [error, clearError]);
   // paystackkk
   const config = {
     reference,
@@ -28,7 +39,7 @@ const TransactionItem = ({ transaction }) => {
   };
 
   const transactionRequests = async (link) => {
-    await axios.patch(`/api/v1/transactions/${link}/${reference}`);
+    await axios.patch(`${ONLINE_API}${TRANSACTION_ROUTE}/${link}/${reference}`);
   };
 
   const recipientStatus = () => {
@@ -40,7 +51,7 @@ const TransactionItem = ({ transaction }) => {
               variant="primary"
               onClick={() =>
                 transactionRequests("accept-transaction").then((res) =>
-                  window.location.reload(false)
+                  window.location.reload()
                 )
               }
             >
@@ -57,7 +68,7 @@ const TransactionItem = ({ transaction }) => {
               variant="primary"
               onClick={() =>
                 transactionRequests("progress").then((res) =>
-                  window.location.reload(false)
+                  window.location.reload()
                 )
               }
             >
@@ -74,7 +85,7 @@ const TransactionItem = ({ transaction }) => {
               variant="primary"
               onClick={() =>
                 transactionRequests("deliver").then((res) =>
-                  window.location.reload(false)
+                  window.location.reload()
                 )
               }
             >
@@ -92,12 +103,12 @@ const TransactionItem = ({ transaction }) => {
       details,
     };
     await axios
-      .post(`${API_URL}/payment/paystack/callback`, body, {
+      .post(`${ONLINE_API}/api/v1/payment/paystack/callback`, body, {
         headers: {
           "Content-Type": "application/json",
         },
       })
-      .then(() => window.location.reload(false));
+      .then(() => window.location.reload());
   };
 
   const initiatorStatus = (props) => {

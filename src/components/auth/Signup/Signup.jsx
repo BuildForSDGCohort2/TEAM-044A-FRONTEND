@@ -1,23 +1,12 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../../../context/auth/authContext";
 import RegContainer from "./RegContainer";
 import RegInfo from "./RegInfo";
 import RegColumn from "./RegColumn";
+import { errorMessage } from "../../../utils/reactToast";
 import "./signup.css";
-
-const missingValue = (val) =>
-  toast(val, {
-    position: "top-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    type: "error",
-  });
 
 const Signup = (props) => {
   const authContext = useContext(AuthContext);
@@ -34,7 +23,7 @@ const Signup = (props) => {
 
   useEffect(() => {
     if (error) {
-      missingValue(error);
+      errorMessage(error);
       updateLoadBtn(false);
       clearErrors();
     }
@@ -56,7 +45,7 @@ const Signup = (props) => {
       !username ||
       !phoneNumber
     ) {
-      missingValue("Please enter all fields");
+      errorMessage("Please enter all fields");
       updateLoadBtn(false);
       clearErrors();
     } else {

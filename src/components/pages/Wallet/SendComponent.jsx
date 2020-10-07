@@ -1,11 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 import Modal from "../../Modal/Modal";
 import Input from "../../Input/Input";
 import WalletContext from "../../../context/wallets/walletContext";
+import { errorMessage } from "../../../utils/reactToast";
 
 const SendComponent = () => {
   const walletContext = useContext(WalletContext);
-  const { transferMoney, clearFields, field } = walletContext;
+  const {
+    transferMoney,
+    clearFields,
+    field,
+    error,
+    clearErrors,
+  } = walletContext;
 
   useEffect(() => {
     setText({
@@ -13,7 +21,12 @@ const SendComponent = () => {
       operationType: "transfer",
       destinationWalletId: "",
     });
-  }, [walletContext, field]);
+
+    if (error) {
+      errorMessage(error);
+      clearErrors();
+    }
+  }, [walletContext, field, error, clearErrors]);
 
   const [text, setText] = useState({
     amount: 0,
@@ -21,7 +34,7 @@ const SendComponent = () => {
     destinationWalletId: "",
   });
 
-  const { amount, operationType, destinationWalletId } = text;
+  const { amount, destinationWalletId } = text;
   const [send, setSend] = useState(false);
   const handleOpen = () => setSend(true);
   const handleClose = () => setSend(false);
@@ -30,7 +43,11 @@ const SendComponent = () => {
   const clearAll = () => clearFields();
   const onSubmit = (e) => {
     e.preventDefault();
-    transferMoney(text);
+    if (!amount || !destinationWalletId) {
+      errorMessage("Please enter amount and account number");
+    } else {
+      transferMoney(text);
+    }
     clearAll();
   };
   return (
@@ -52,13 +69,6 @@ const SendComponent = () => {
               onChange={onChange}
               placeholder="Wallet Id"
             />
-            <select
-              value={operationType}
-              onChange={onChange}
-              name="operationType"
-            >
-              <option value="transfer">Transfer</option>
-            </select>
             <button className="btn btn-info" onClick={handleClose}>
               Send
             </button>
@@ -69,6 +79,7 @@ const SendComponent = () => {
         {" "}
         Transfer{" "}
       </button>
+      <ToastContainer />
     </div>
   );
 };

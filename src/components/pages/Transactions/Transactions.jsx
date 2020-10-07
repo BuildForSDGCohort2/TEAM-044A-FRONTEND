@@ -1,19 +1,21 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import TransactionContext from "../../../context/transactions/transactionContext";
 import TransactionItem from "./TransactionItem";
 import { CardColumns, Spinner } from "react-bootstrap";
+import { errorMessage } from "../../../utils/reactToast";
+import { ToastContainer } from "react-toastify";
 
 const Transactions = () => {
   const transactionContext = useContext(TransactionContext);
   const { loadTransactions, transactions, loading, error } = transactionContext;
-  const [status, setStatus] = useState(true);
 
-  console.log(transactions);
   useEffect(() => {
     loadTransactions();
 
-    //eslint-disable-next-line
-  }, []);
+    if (error) {
+      errorMessage(error);
+    }
+  }, [loadTransactions, error]);
 
   if (loading) {
     return (
@@ -23,17 +25,11 @@ const Transactions = () => {
     );
   }
 
-  // if (error) {
-  //   console.log(error);
-  //   return <Fragment>{error}</Fragment>;
-  // }
-
   // let status = false;
   function displayTransactions() {
     if (transactions.length === 0) {
       return null;
     } else {
-      setStatus(true);
       return (
         <Fragment>
           {transactions[0].map((transaction) => (
@@ -57,6 +53,7 @@ const Transactions = () => {
         {/* {status ? displayTransactions() : <p>Hello</p>} */}
         {/* {displayTransactions()} */}
       </CardColumns>
+      <ToastContainer />
     </Fragment>
   );
 };
