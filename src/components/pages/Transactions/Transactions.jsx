@@ -2,20 +2,21 @@ import React, { Fragment, useContext, useEffect } from "react";
 import TransactionContext from "../../../context/transactions/transactionContext";
 import TransactionItem from "./TransactionItem";
 import { CardColumns, Spinner } from "react-bootstrap";
-import { errorMessage } from "../../../utils/reactToast";
 import { ToastContainer } from "react-toastify";
 
 const Transactions = () => {
   const transactionContext = useContext(TransactionContext);
-  const { loadTransactions, transactions, loading, error } = transactionContext;
+  const { loadTransactions, transactions, loading } = transactionContext;
 
   useEffect(() => {
     loadTransactions();
 
-    if (error) {
-      errorMessage(error);
-    }
-  }, [loadTransactions, error]);
+    // if (error) {
+    //   errorMessage(error);
+    // }
+
+    //eslint-disable-next-line
+  }, []);
 
   if (loading) {
     return (
