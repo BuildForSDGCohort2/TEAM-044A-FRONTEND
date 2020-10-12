@@ -32,6 +32,10 @@ const missingValue = (val) =>
   });
 
 const Signup = (props) => {
+
+  const bodyStyle = document.querySelector("body").style;
+  bodyStyle.overflow = "hidden";
+
   const authContext = useContext(AuthContext);
   const { register, clearErrors, isAuthenticated, error } = authContext;
   const [loadBtn, updateLoadBtn] = useState(false);

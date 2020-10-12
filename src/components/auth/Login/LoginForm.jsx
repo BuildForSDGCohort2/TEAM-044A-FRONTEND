@@ -7,7 +7,9 @@ import background from "../../assets/images/login.png";
 
 const LoginForm = ({ email, password, onSubmit, onChange, loadBtn }) => {
   const bodyStyle = document.querySelector("body").style;
-  bodyStyle.backgroundImage = `url(${background})`;
+  // bodyStyle.backgroundImage = `url(${background})`;
+  bodyStyle.backgroundImage = "linear-gradient(to bottom right, #66a8ff 0%, #cbfbd0 100%)";
+  bodyStyle.backgroundColor = "#ffffff";
   bodyStyle.backgroundPosition = "center";
   bodyStyle.backgroundRepeat = "no-repeat";
   bodyStyle.backgroundSize = "cover";

@@ -4,6 +4,8 @@ import Button from "../../Button/Button";
 import image from "../../assets/images/secure-payments.jpg";
 
 const RegInfo = () => {
+  const bodyStyle = document.querySelector("body").style;
+  bodyStyle.overflow = "hidden";
   return (
     <Fragment>
       <div id="info-column">

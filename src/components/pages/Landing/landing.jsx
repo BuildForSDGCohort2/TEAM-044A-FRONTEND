@@ -7,6 +7,10 @@ import image1 from "../../assets/images/undraw_two_factor_authentication_namy.pn
 import image2 from "../../assets/images/undraw_secure_server_s9u8.png";
 
 export default function LandingPage() {
+  const bodyStyle = document.querySelector("body").style;
+  // bodyStyle.backgroundImage = "linear-gradient(to bottom right, #66a8ff 0%, #cbfbd0 100%)";
+  bodyStyle.backgroundColor = "#ffffff";
+
   return (
     <section className="container-fluid">
       <div className="container">
