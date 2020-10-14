@@ -1,11 +1,35 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../../../context/auth/authContext";
 import LoginContainer from "./LoginContainer";
 import LoginForm from "./LoginForm";
-import { errorMessage, successMessage } from "../../../utils/reactToast";
 import "./login.css";
+
+// toast messages
+const successMessage = () =>
+  toast("Success!! Redirecting...", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: "success",
+  });
+
+const missingValue = (val) =>
+  toast(val, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: "error",
+  });
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
@@ -22,7 +46,7 @@ const Login = (props) => {
     }
 
     if (error) {
-      errorMessage(error);
+      missingValue(error);
       updateLoadBtn(false);
       clearErrors();
     }
@@ -39,14 +63,15 @@ const Login = (props) => {
 
     updateLoadBtn(true);
     if (!email || !password) {
-      errorMessage("Please enter all fields");
+      missingValue("Please enter all fields");
       updateLoadBtn(false);
       clearErrors();
     } else {
       loginUser({
         email,
         password,
-      }).then(() => successMessage());
+      });
+      successMessage();
     }
   };
 

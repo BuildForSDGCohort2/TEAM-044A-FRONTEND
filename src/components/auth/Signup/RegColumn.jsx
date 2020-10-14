@@ -18,11 +18,16 @@ const RegColumn = ({
   loadBtn,
 }) => {
   const bodyStyle = document.querySelector("body").style;
-  bodyStyle.backgroundImage = "linear-gradient(to bottom, #F6F6F2, #C2EDCE)";
+  // bodyStyle.backgroundImage = `url(${background})`;
+  bodyStyle.backgroundImage = "linear-gradient(to bottom right, #66a8ff 0%, #cbfbd0 100%)";
+  bodyStyle.backgroundColor = "#ffffff";
+  bodyStyle.backgroundPosition = "center";
   bodyStyle.backgroundRepeat = "no-repeat";
-  bodyStyle.overflow = "hidden";
+  bodyStyle.backgroundSize = "cover";
   bodyStyle.height = "100%";
   bodyStyle.fontFamily = "Rubik, sans-serif";
+  bodyStyle.overflow = "hidden";
+  
   return (
     <Fragment>
       <div id="reg-column">
