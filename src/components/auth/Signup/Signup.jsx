@@ -1,16 +1,43 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../../../context/auth/authContext";
 import RegContainer from "./RegContainer";
 import RegInfo from "./RegInfo";
 import RegColumn from "./RegColumn";
-import { errorMessage } from "../../../utils/reactToast";
 import "./signup.css";
 
+// toast messages
+const successMessage = () =>
+  toast("Success!! Redirecting...", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: "success",
+  });
+const missingValue = (val) =>
+  toast(val, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: "error",
+  });
+
 const Signup = (props) => {
+
+  const bodyStyle = document.querySelector("body").style;
+  bodyStyle.overflow = "hidden";
+
   const authContext = useContext(AuthContext);
-  const { register, clearErrors, error } = authContext;
+  const { register, clearErrors, isAuthenticated, error } = authContext;
   const [loadBtn, updateLoadBtn] = useState(false);
   const [user, setUser] = useState({
     firstName: "",
@@ -22,14 +49,19 @@ const Signup = (props) => {
   });
 
   useEffect(() => {
+    if (isAuthenticated) {
+      successMessage();
+      props.history.push("/dashboard");
+    }
+
     if (error) {
-      errorMessage(error);
+      missingValue(error);
       updateLoadBtn(false);
       clearErrors();
     }
 
     //eslint-disable-next-line
-  }, [error, props.history]);
+  }, [isAuthenticated, error, props.history]);
 
   const { firstName, lastName, email, password, username, phoneNumber } = user;
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
@@ -45,7 +77,7 @@ const Signup = (props) => {
       !username ||
       !phoneNumber
     ) {
-      errorMessage("Please enter all fields");
+      missingValue("Please enter all fields");
       updateLoadBtn(false);
       clearErrors();
     } else {
@@ -56,7 +88,7 @@ const Signup = (props) => {
         password,
         username,
         phoneNumber,
-      }).then(() => props.history.push("/verify"));
+      });
     }
   };
 
