@@ -1,0 +1,158 @@
+body{
+  overflow-y: scroll !important;
+}
+
+.showcaseHeader {
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-top: 3em;
+  line-height: 1.5em;
+}
+
+.showcaseText {
+  letter-spacing: 0.8px;
+}
+
+.buttons .first {
+  background-color: #029ab2;
+  color: white;
+}
+
+.jumbotron {
+  background-color: #fff;
+}
+
+.jumbotron h5 {
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.jumbotron .solution1 .imageArea img {
+  height: 50vh;
+  position: relative;
+  bottom: 5em;
+}
+
+.jumbotron .solution2 .imageArea img {
+  height: 35vh;
+}
+
+.wrapper .box1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.wrapper .box1 img {
+  width: 6rem;
+}
+
+.wrapper .box1 p {
+  width: 83%;
+}
+
+.jumbotronBoxes {
+  margin-top: 4em;
+}
+
+@media screen and (min-width: 700px) {
+  .wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .jumbotron .solution1 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .jumbotron .solution1 .textarea {
+    width: 50%;
+    margin-top: 4rem;
+  }
+
+  .jumbotron .solution1 .textarea p {
+    width: 70%;
+    line-height: 2em;
+    letter-spacing: 1px;
+  }
+
+  .jumbotron .solution2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .jumbotron .solution2 .imageArea {
+    position: relative;
+    bottom: 3rem;
+    right: 3rem;
+    height: 45vh;
+  }
+
+  .jumbotron .solution2 .textarea {
+    width: 50%;
+    position: relative;
+    left: 5rem;
+  }
+
+  .wrapper {
+    position: relative;
+    bottom: 3rem;
+  }
+
+  .jumbotronBoxes {
+    display: flex;
+    justify-content: center;
+  }
+
+  .jumbotronBoxes .jumbotron {
+    width: 30%;
+  }
+
+  .jumbotronBoxes .jumbotron:last-child{
+    margin-left: 5em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .buttons .last {
+    margin-left: 0.5em;
+  }
+
+  .jumbotron p {
+    padding-top: 0.8em;
+    letter-spacing: 0.5px;
+  }
+
+  .jumbotron .solution1 .imageArea {
+    display: none;
+  }
+
+  .jumbotron .solution2 {
+    margin-top: 2em;
+  }
+
+  .jumbotron .solution2 .imageArea img {
+    height: 35vh;
+  }
+
+  .wrapper .box1 {
+    width: 100%;
+    margin-top: 3em;
+  }
+
+  .wrapper .box1 img {
+    width: 6rem;
+  }
+
+  .wrapper .box1 h5 {
+    letter-spacing: 1px;
+  }
+
+  .wrapper .box1 p{
+    line-height: 1.5em;
+    letter-spacing: 1px;
+  }
+}
