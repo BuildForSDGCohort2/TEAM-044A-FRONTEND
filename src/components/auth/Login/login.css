@@ -38,3 +38,18 @@ div#login-container button:hover{
     transition: all ease-in;
     transition-duration: 0.15s;
 }
+
+@media only screen and (max-width: 600px) {
+    div#login-container{
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    div#login-container{
+        width: 18rem;
+        height: 20rem;
+        padding: 10px;
+    }
+}
