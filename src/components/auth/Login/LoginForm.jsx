@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import Form from "../../Form/Form";
 import Input from "../../Input/Input";
 import Button from "../../Button/Button";
+import background from "../../assets/images/login.png";
 
 const LoginForm = ({ email, password, onSubmit, onChange, loadBtn }) => {
   const bodyStyle = document.querySelector("body").style;
-  bodyStyle.backgroundImage = "linear-gradient(to bottom, #F6F6F2, #C2EDCE)";
+  // bodyStyle.backgroundImage = `url(${background})`;
+  bodyStyle.backgroundImage = "linear-gradient(to bottom right, #66a8ff 0%, #cbfbd0 100%)";
+  bodyStyle.backgroundColor = "#ffffff";
+  bodyStyle.backgroundPosition = "center";
+  bodyStyle.backgroundRepeat = "no-repeat";
+  bodyStyle.backgroundSize = "cover";
   bodyStyle.height = "100%";
   bodyStyle.margin = "0";
   bodyStyle.backgroundRepeat = "no-repeat";
